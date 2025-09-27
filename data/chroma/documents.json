@@ -1,0 +1,1461 @@
+{
+  "f12ee7f2-b006-4af2-8483-de01519a40c4": {
+    "document_id": "f12ee7f2-b006-4af2-8483-de01519a40c4",
+    "status": "ready",
+    "metadata": {
+      "filename": "073b781d-fb83-451f-bb9c-7483d087af6a.pdf",
+      "original_filename": "ElevenLabs Agents API Reference Documentation.pdf",
+      "file_size": 277755,
+      "document_type": "pdf",
+      "upload_timestamp": "2025-09-25 21:10:01.710262",
+      "processing_timestamp": "2025-09-25 21:10:01.977518",
+      "page_count": 5,
+      "word_count": 872
+    },
+    "chunks": [
+      {
+        "chunk_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3_chunk_0",
+        "document_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3",
+        "content": "Page 1 ElevenLabs Agents API Reference Documentation Overview ElevenLabs Conversational AI provides API endpoints for managing agents, conversations, tools, knowledge base, phone numbers, widget, workspace, SIP trunk, Twilio, batch calling, LLM usage, and MCP functionality. ElevenLabs Conversational AI is a platform for deploying customized, conversational voice agents that eliminates months of development time typically spent building conversation stacks from scratch. Core Agent API Endpoints 1.",
+        "page_number": null,
+        "chunk_index": 0,
+        "metadata": {
+          "char_count": 502,
+          "word_count": 65
+        }
+      },
+      {
+        "chunk_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3_chunk_1",
+        "document_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3",
+        "content": "I is a platform for deploying customized, conversational voice agents that eliminates months of development time typically spent building conversation stacks from scratch. Core Agent API Endpoints 1. Create Agent Endpoint: POST v1convaiagentscreate URL: https:api.elevenlabs.iov1convaiagentscreate Description: Create an agent from a config object Authentication: xi-api-key (optional header) Request Body: conversation_config (object, required): Conversation configuration for an agent platform_settings (object, optional): Platform settings for the agent are all settings that arent related to the conversation orchestration and content name (string, optional): A name to make the agent easier to find tags (list of strings, optional): Tags to help classify and filter the agent Response: agent_id (string): ID of the created agent 2.",
+        "page_number": null,
+        "chunk_index": 1,
+        "metadata": {
+          "char_count": 836,
+          "word_count": 111
+        }
+      },
+      {
+        "chunk_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3_chunk_2",
+        "document_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3",
+        "content": "nt name (string, optional): A name to make the agent easier to find tags (list of strings, optional): Tags to help classify and filter the agent Response: agent_id (string): ID of the created agent 2.List Agents Endpoint: GET v1convaiagents URL: https:api.elevenlabs.iov1convaiagents Description: Returns a list of your agents and their metadata Query Parameters: Cursor: Used for fetching next page.Cursor is returned in the response Limit: How many Agents to return at maximum. Can not exceed 100, defaults to 30 Search: Search by agents name 3. Get Agent Page 2 Endpoint: GET v1convaiagents:agent_id URL: https:api.elevenlabs.iov1convaiagents:agent_id Description: Retrieve config for an agent Path Parameters: agent_id (string, required): The id of an agent. This is returned on agent creation 4.",
+        "page_number": null,
+        "chunk_index": 2,
+        "metadata": {
+          "char_count": 801,
+          "word_count": 117
+        }
+      },
+      {
+        "chunk_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3_chunk_3",
+        "document_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3",
+        "content": "d URL: https:api.elevenlabs.iov1convaiagents:agent_id Description: Retrieve config for an agent Path Parameters: agent_id (string, required): The id of an agent. This is returned on agent creation 4. Update Agent Endpoint: PATCH v1convaiagents:agent_id URL: https:api.elevenlabs.iov1convaiagents:agent_id Description: Patches an Agent settings Path Parameters: agent_id (string, required): The id of an agent.",
+        "page_number": null,
+        "chunk_index": 3,
+        "metadata": {
+          "char_count": 409,
+          "word_count": 48
+        }
+      },
+      {
+        "chunk_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3_chunk_4",
+        "document_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3",
+        "content": "ent Endpoint: PATCH v1convaiagents:agent_id URL: https:api.elevenlabs.iov1convaiagents:agent_id Description: Patches an Agent settings Path Parameters: agent_id (string, required): The id of an agent.This is returned on agent creation Authentication: xi-api-key (optional header) Request Body: conversation_config (any, optional) platform_settings (any, optional) name (string, optional): A name to make the agent easier to find categories (list of strings, optional): Categories to help classify and filter the agent Response: agent_id (string): The ID of the agent name (string): The name of the agent conversation_config (object): The conversation configuration of the agent Related Agent Functionality Knowledge Base Integration Get Dependent Agents: Get dependent agents endpoint available for knowledge base integration Knowledge Base Documents: List, delete, get, create knowledge base documents from URLtextfile, compute RAG index, get document content and chunks Agent Simulation and Testing Simulate Conversation: Run a conversation between an agent and a simulated user Simulate Conversation (Stream): Run and stream a conversation simulation between an agent and a simulated user Page 3 Dynamic Variables: Added dynamic_variables parameter for populating conversation context with runtime values Agent Tools and Customization Tools Integration: Tools allow Conversational AI agents to perform actions beyond generating text responses, including client-side and server-side custom tools Multi-voice Support: Enable conversational AI agents to dynamically switch between different voices during conversations for multi-character storytelling, language tutoring, and role-playing scenarios Custom Voice Settings: Added support for configuring individual voice settings per supported voice in multi-voice agents Authentication and Authorization Get Signed URL: Get a signed URL to start a conversation with an agent that requires authorization API Key Authentication: All API requests should include your API key in an xi-api-key HTTP header Platform and Workspace Management Widget Configuration Get Widget: GET v1convaiwidget endpoint Create Widget Avatar: POST endpoint for creating widget avatars Multimodal Widget: Added text input and text-only mode defaults for better user experience Workspace Settings GetUpdate Settings: GET and PATCH endpoints for workspace settings Secret Management: Create and delete secrets, with PATCH support for granular updates Dashboard Settings: GET and PATCH endpoints for dashboard settings Phone Number Integration Phone Number Management: Create, list, get, update, and delete phone numbers Batch Calling: Submit batch call requests and retrieve all batch calls for workspace LLM and Model Support Supported Models Currently supported models include Gemini, Claude, OpenAI and more, with support for custom LLM endpoints Page 4 Recent Model Additions Claude Sonnet 4: Added Claude Sonnet 4 as a new LLM option for conversational agents, providing enhanced reasoning capabilities and improved performance GPT-4.1 Models: Added support for new GPT-4.1 models: gpt-4.1, gpt-4.1-mini, and gpt-4.1-nano Monitoring and Analytics LLM Usage Tracking LLM Usage: Added detailed LLM usage and pricing information to conversation charging and history models VAD Score: Added a new client event which sends VAD scores to the client Conversation Management Conversation History: Track and analyze conversation performance Feedback System: Send conversation feedback via POST endpoint Integration Capabilities External Platform Integration Twilio Integration: Outbound call via Twilio endpoint Genesys Cloud: Introduced AudioHook Protocol integration for seamless connection with Genesys Cloud contact center platform SIP Trunk: Native SIP trunk integration for telephony systems MCP (Model Context Protocol) MCP Server Tools: Delete MCP server tool approval - Remove approval for a specific MCP tool when using per-tool approval mode Base URLs and Authentication Base API URL: https:api.elevenlabs.iov1 Authentication: API key required in xi-api-key header for all requests Security: SOC2 and GDPR compliance with end-to-end encryption and optional no-retention mode Rate Limits and Concurrency Your subscription plan determines how many calls can be made simultaneously.",
+        "page_number": null,
+        "chunk_index": 4,
+        "metadata": {
+          "char_count": 4307,
+          "word_count": 578
+        }
+      },
+      {
+        "chunk_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3_chunk_5",
+        "document_id": "4e92d858-b3f2-4ffa-9ac3-135e5072f9a3",
+        "content": "ts Security: SOC2 and GDPR compliance with end-to-end encryption and optional no-retention mode Rate Limits and Concurrency Your subscription plan determines how many calls can be made simultaneously.To increase your concurrency limit upgrade your subscription plan or contact sales to discuss enterprise plans.Page 5 Audio Output Formats The following audio output formats are supported in the Conversational AI platform: PCM (8 kHz  16 kHz  22.05 kHz  24 kHz  44.1 kHz) Document generated from ElevenLabs API documentation available at https:elevenlabs.iodocsconversational-aiapi-reference Last Updated: June 2025 API Version: v1",
+        "page_number": null,
+        "chunk_index": 5,
+        "metadata": {
+          "char_count": 632,
+          "word_count": 86
+        }
+      }
+    ],
+    "error_message": null
+  },
+  "488b32c0-16ca-4edf-81d6-a1e923a032a3": {
+    "document_id": "488b32c0-16ca-4edf-81d6-a1e923a032a3",
+    "status": "ready",
+    "metadata": {
+      "filename": "f8be55d8-f3cd-4e50-9b2a-48f88e16529c.pdf",
+      "original_filename": "MOHAMMED FAHEEM - 134555 (1).pdf",
+      "file_size": 191446,
+      "document_type": "pdf",
+      "upload_timestamp": "2025-09-26 20:19:15.427953",
+      "processing_timestamp": "2025-09-26 20:19:15.487780",
+      "page_count": 11,
+      "word_count": 6661
+    },
+    "chunks": [
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_0",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "Page 1 AGREEMENT This Agreement is executed on the date and at the place as mentioned in Annexure 1, by and between Cars24 Financial Services Pvt. Ltd. , a company registered in India, having its registered office at 10th Floor, Tower B, Unitech Cyber Park, Sector 39, Gurgaon 122001, Haryana (hereinafter referred to as CARS24 , which term shall, unless it is repugnant to the context or meaning hereof, be deemed to include its successors and assigns) AND the Dealer, as defined in Annexure 1, which expression shall, unless repugnant to the context and meaning thereof, mean and include its respective heirs, executors, administrators and successors and partner(s) and their successors. CARS24 and Dealer shall hereinafter be collectively referred to as Parties and individually as Party.",
+        "page_number": null,
+        "chunk_index": 0,
+        "metadata": {
+          "char_count": 792,
+          "word_count": 126
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_1",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "s respective heirs, executors, administrators and successors and partner(s) and their successors. CARS24 and Dealer shall hereinafter be collectively referred to as Parties and individually as Party. WHEREAS the Dealer is engaged in the business of sale of the Products (hereinafter defined) and in the course of its business a number of persons (hereinafter referred to as the Customers ) approach the Dealer to arrange for finance for the Products to be purchased by them from the Dealer or to arrange finance for the Products owned by them.AND WHEREAS the Dealer has approached Cars24 to provide finance to such Customers.",
+        "page_number": null,
+        "chunk_index": 1,
+        "metadata": {
+          "char_count": 626,
+          "word_count": 100
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_2",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "inance for the Products to be purchased by them from the Dealer or to arrange finance for the Products owned by them.AND WHEREAS the Dealer has approached Cars24 to provide finance to such Customers. AND WHEREAS CARS24 has agreed to an arrangement with the Dealer, pursuant to which either Cars24 or its Lending Partner would in its sole discretion on a case to case basis provide finance to the Customers of the Dealer for purchase of Products or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers, on the terms and conditions as set forth hereunder.",
+        "page_number": null,
+        "chunk_index": 2,
+        "metadata": {
+          "char_count": 612,
+          "word_count": 105
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_3",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "Dealer for purchase of Products or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers, on the terms and conditions as set forth hereunder.NOW THEREFORE, IN CONSIDERATION OF THE MUTUAL PROMISES CONTAINED HEREIN AND OTHER GOOD AND SUFFICIENT CONSIDERATION, THE RECEIPT AND ADEQUACY OF WHICH IS HEREBY ACKNOWLEDGED, THE PARTIES HERETO AGREE AS FOLLOWS: 1.INTERPRETATION: In this Agreement, unless the context otherwise requires the following terms and expressions shall bear the following meanings: A.Customer means a person whowhich intends to purchase a Product from the Dealer.B.Loan means the loan which may be provided by CARS24 or its Lending Partner to a customer for i.Purchase of a Product by the Customer from the Dealer and ii.Refinance of Products owned by the Customer or loan against Product owned by the Customer. C.Loan Application means an application to be filed by a Customer, who desires to obtain a Loan.",
+        "page_number": null,
+        "chunk_index": 3,
+        "metadata": {
+          "char_count": 985,
+          "word_count": 155
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_4",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "aler and ii.Refinance of Products owned by the Customer or loan against Product owned by the Customer. C.Loan Application means an application to be filed by a Customer, who desires to obtain a Loan. D.Loan Documentation means the Loan Application, Loan agreement and other related documents, as specified by CARS24 or its Lending Partner from time to time.E.Manufacturer means the manufacturer of the Product. F.Product means Pre owned Car, sold or distributed by Dealer. Clauses, headings used herein are for the sake of ease of reference only and shall not affect the interpretation of the provisions of this Agreement. Clauses pertaining to specific products shall be read in the specific context. Words using the singular or plural number also include the plural or singular number, respectively.",
+        "page_number": null,
+        "chunk_index": 4,
+        "metadata": {
+          "char_count": 802,
+          "word_count": 126
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_5",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "s of this Agreement. Clauses pertaining to specific products shall be read in the specific context. Words using the singular or plural number also include the plural or singular number, respectively. The term Recital, Clause, sub Clause and Annexure refers to the specified recital, clause, sub clause and annexure, respectively, of this Agreement and shall form and read as a part of this Agreement.2.ARRANGEMENT BETWEEN PARTIES: 2.1At the request of the Dealer and on the basis of the undertakings by the Dealer, as hereinafter provided, CARS24 or its Lending Partner has agreed to consider the granting of Loans to Customers for the purchase of Products by Customers from the Dealer or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers.",
+        "page_number": null,
+        "chunk_index": 5,
+        "metadata": {
+          "char_count": 802,
+          "word_count": 129
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_6",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ing of Loans to Customers for the purchase of Products by Customers from the Dealer or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers. 2.2In consideration of CARS24 or its Lending Partner agreeing to consider granting Loan to the Dealers Customers, the Dealer has agreed to provide certain services relating to the granting of Loans, as mentioned herein below, for and on behalf of CARS24 or its Lending Partner, on the terms and conditions herein contained.2.3The decision of CARS24 or its Lending Partner as to granting of the Loan shall be at its sole discretion and shall not be challenged or open for scrutiny by either the Dealer or the Customer. CARS24 or its Lending Partner shall not be obliged to accept every Loan Application forwarded or recommended by the Dealer. 3.TERM: 3.1This Agreement shall remain in effect until terminated in the manner provided for under this agreement.",
+        "page_number": null,
+        "chunk_index": 6,
+        "metadata": {
+          "char_count": 957,
+          "word_count": 158
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_7",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "be obliged to accept every Loan Application forwarded or recommended by the Dealer. 3.TERM: 3.1This Agreement shall remain in effect until terminated in the manner provided for under this agreement. 4.DEALERS RESPONSIBILITIES 4.1The Dealer shall explain the finance schemes facilities provided by CARS24 or its Lending Partner for purchase or refinance of the Products to the Customers.Page 2 4.2The Dealer will prominently display and exhibit in his showroom or shop or office necessary brochures, posters and sale advertising material of CARS24 or its Lending Partner, as provided to the Dealer by CARS24 or its Lending Partner from time to time. It is clarified that CARS24 or its Lending Partner and the Dealer may, from time to time, undertake joint publicity andor advertising. All the expenses in this regard shall be shared as mutually agreed from time to time.",
+        "page_number": null,
+        "chunk_index": 7,
+        "metadata": {
+          "char_count": 871,
+          "word_count": 138
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_8",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "CARS24 or its Lending Partner and the Dealer may, from time to time, undertake joint publicity andor advertising. All the expenses in this regard shall be shared as mutually agreed from time to time. 4.3If the Dealer finds that the Customer fulfills the eligibility criteria notified to the Dealer by CARS24 from time to time, the Dealer will obtain from the Customer a duly filled Loan Application and other initial documents, as specified by CARS24 or its Lending Partner from time to time, to enable CARS24 or its Lending Partner to process the Loan Application of the Customer, AND 4.4Forward the duly completed Loan Application and initial documents to CARS24, for its approval.",
+        "page_number": null,
+        "chunk_index": 8,
+        "metadata": {
+          "char_count": 683,
+          "word_count": 113
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_9",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "to time, to enable CARS24 or its Lending Partner to process the Loan Application of the Customer, AND 4.4Forward the duly completed Loan Application and initial documents to CARS24, for its approval.It is expressly agreed that CARS24 or its Lending Partner shall not be obliged to accept every Loan Application received from the Dealer and CARS24 or its Lending Partner may, in its sole and absolute discretion and notwithstanding that the Customer fulfills its eligibility criteria, be entitled to reject any Loan Application.CARS24 or its Lending Partner shall not be obligated to provide reasons for rejection of any Loan Application to the Dealer. The Dealer shall not either directly or indirectly make or give any commitment on behalf of CARS24 or its Lending Partner relating to acceptance of the Loan Application of the Customer.",
+        "page_number": null,
+        "chunk_index": 9,
+        "metadata": {
+          "char_count": 839,
+          "word_count": 134
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_10",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "o the Dealer. The Dealer shall not either directly or indirectly make or give any commitment on behalf of CARS24 or its Lending Partner relating to acceptance of the Loan Application of the Customer. 4.5On receipt of confirmation from CARS24 or its Lending Partner of its acceptance of a Loan Application, the Dealer shall obtain completed Loan Documentation (as per CARS24 policy) from the Customer and send the same to CARS24.The Dealer shall ensure that in all cases the Loan Documentation are completed by the Customer in his own hand and are completely filled in all respect and all the legal requirements as indicated by CARS24 or its Lending Partner are duly completed. 4.6Ensure that the payment of the disbursed Loan amount is made to the bonafide Customer intending to buy the Product from the Dealer or the Cars24 Services Dealer DTA account.",
+        "page_number": null,
+        "chunk_index": 10,
+        "metadata": {
+          "char_count": 854,
+          "word_count": 143
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_11",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "er are duly completed. 4.6Ensure that the payment of the disbursed Loan amount is made to the bonafide Customer intending to buy the Product from the Dealer or the Cars24 Services Dealer DTA account. In addition to the same the Cars24 shall ensure that an Authorization Letter  Payment Instruction for Loan for Loan is signed by the Customer and the same shall be shared by the Lender to the Dealer.4.7The Dealer shall ensure that once the Loan is disbursed to the Customer by Cars24 or its Lending Partner, it shall in no event cancel the sale of Product to the Customer or buyback the Product from the Customers without approval of Cars24. 4.8Provided that, in case the Customer decides against availing the Loan, the refund for the monies paid towards the Loan amount is made to CARS24 or its Lending Partner within 48 (forty eight) hours of such cancellation irrespective of the payment being made to any third party, failing which the Dealer shall be liable to pay an interest of 18 p.a.",
+        "page_number": null,
+        "chunk_index": 11,
+        "metadata": {
+          "char_count": 993,
+          "word_count": 173
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_12",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ts Lending Partner within 48 (forty eight) hours of such cancellation irrespective of the payment being made to any third party, failing which the Dealer shall be liable to pay an interest of 18 p.a. till the refund of Loan amount.4.9The Dealer shall based on the written instructions issued from time to time by CARS24 or its Lending Partner about the terms of finance correspond with all Customers and explain all terms and conditions relating to the Loan. 4.10Post sanction of a Loan, the Dealer shall collect down payment from the Customer, which shall be the sale price of the product less the amount of loan granted by Cars24 or its Lending Partner. The Dealer shall also provide adequate proof thereof ( Down Payment Proof ) to Cars24. 4.11The Dealer shall deliver to CARS24 a copy of the delivery challan evidencing delivery of the Product duly acknowledged by the Customer ( Product Delivery Proof ).",
+        "page_number": null,
+        "chunk_index": 12,
+        "metadata": {
+          "char_count": 910,
+          "word_count": 155
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_13",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "Down Payment Proof ) to Cars24. 4.11The Dealer shall deliver to CARS24 a copy of the delivery challan evidencing delivery of the Product duly acknowledged by the Customer ( Product Delivery Proof ). 4.12The Dealer shall be responsible for, and shall pay, all taxes, levies, duties, assessments and deductions of every nature required by law in connection with the provision of Services under this Agreement.4.13The Dealer shall be responsible as and when requested by CARS24 or its Lending Partner, to assist CARS24 or its Lending Partner in the recoveries of outstanding dues from all defaulting Customers including non  starters or skip cases. 4.14The Dealer shall allow the representatives  officers of CARS24 to audit the records of the Dealer at all reasonable times with adequate notice only in respect of records connected with the sanction of Loan by CARS24 or its Lending Partner to its Customers.",
+        "page_number": null,
+        "chunk_index": 13,
+        "metadata": {
+          "char_count": 908,
+          "word_count": 145
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_14",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ARS24 to audit the records of the Dealer at all reasonable times with adequate notice only in respect of records connected with the sanction of Loan by CARS24 or its Lending Partner to its Customers. 4.15The Dealer shall deliver to CARS24 a copy of the valid Motor insurance copy of the vehicle financed before delivery ( Motor Insurance copy ).4.16The dealer shall be responsible to provide all the required documents of Seller and Buyer which are required for RC transfer and Hypothecation Addition of financier along with the alignment with seller for party-peshi (as and when required).",
+        "page_number": null,
+        "chunk_index": 14,
+        "metadata": {
+          "char_count": 591,
+          "word_count": 97
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_15",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "all the required documents of Seller and Buyer which are required for RC transfer and Hypothecation Addition of financier along with the alignment with seller for party-peshi (as and when required). In case the dealer is not able to fulfill the responsibilities, then the loan shall be foreclosed by the dealer 5.COLLECTION OF CHARGES 5.1On execution of the Loan Documentation, the Dealer shall collect from each Customer processing charges, non  refundable service charges, security charges and such other charges as may be decided by CARS24 or its Lending Partner in its sole discretion and specified to the Dealer from time to time (hereinafter referred to as Charges ) in accordance with any scheme(s) of CARS24 or its Lending Partner.Such Charges collected by the Dealer from the Customer shall be adjusted with the disbursement amount paid by CARS24 to the Dealer on receiving the receipt for such collection of Charges from the Dealer.",
+        "page_number": null,
+        "chunk_index": 15,
+        "metadata": {
+          "char_count": 944,
+          "word_count": 152
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_16",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "Charges collected by the Dealer from the Customer shall be adjusted with the disbursement amount paid by CARS24 to the Dealer on receiving the receipt for such collection of Charges from the Dealer. 5.2In case the Customer cancels the booking at a later date prior to the delivery of the Productvehicle then the Dealer shall refund all the monies, inclusive of Loan amount disbursed by CARS24 and all other monies received from Customer, only to CARS24.5.3If the Dealer fails to pay to CARS24 or its Lending Partner the Charges, as mentioned in clause 5 (a) above, CARS24 or its Lending Partner shall be entitled to deduct the same from the Loan amount to be disbursed to the Dealer and to pay to the Dealer only the balance Loan amount. Alternatively, Cars24 can deduct that Charges from any other payout earnings of the Dealer.",
+        "page_number": null,
+        "chunk_index": 16,
+        "metadata": {
+          "char_count": 831,
+          "word_count": 143
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_17",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "e from the Loan amount to be disbursed to the Dealer and to pay to the Dealer only the balance Loan amount. Alternatively, Cars24 can deduct that Charges from any other payout earnings of the Dealer. 6.CARS24s RESPONSIBILITIES 6.1CARS24 shall, from time to time, provide to the Dealer appropriate details of its standard eligibility criteria for granting Loans to the Customers.These criteria are subject to change at the sole discretion of CARS24, without notice to the Dealer. 6.2On receiving the Loan Documentation and due verification thereof, CARS24 shall, if satisfied that the Loan Documentation is complete in all respects and subject to Clause 4, disburse to the Dealer the Loan amount, which shall be equal to the sale price of the Product less the down payment paid by the Customer to the Dealer.",
+        "page_number": null,
+        "chunk_index": 17,
+        "metadata": {
+          "char_count": 808,
+          "word_count": 133
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_18",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "mplete in all respects and subject to Clause 4, disburse to the Dealer the Loan amount, which shall be equal to the sale price of the Product less the down payment paid by the Customer to the Dealer. 6.3In the event that the Dealer fails to pay to CARS24 the Charges as mentioned in Clause 5 (a), CARS24 shall prior to disbursal of the Loan amount, deduct from there the charges payable by the Dealer to CARS24 under Clause 5 (a).6.4The disbursement of the Loan amount shall be made by CARS24 only after CARS24 receives a copy of the delivery challan in respect of the Product duly acknowledged by the Customer. 6.5CARS24 may, at its sole discretion, provide to the Dealer, brochures, posters and point of sale advertising material for the loans. Page 3 6.6CARS24 shall provide to the Dealer adequate Loan Documentation to enable the Dealer to provide the same to eligible Customers.",
+        "page_number": null,
+        "chunk_index": 18,
+        "metadata": {
+          "char_count": 884,
+          "word_count": 154
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_19",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "posters and point of sale advertising material for the loans. Page 3 6.6CARS24 shall provide to the Dealer adequate Loan Documentation to enable the Dealer to provide the same to eligible Customers. 6.7CARS24 shall make all deductions on payments of the Fee, as required by law and provide the Dealer with the requisite certifications for deduction of tax at source andor reimburse the Dealer such amounts as paid by Dealer on account of any statutory tax legally due from CARS24 upon submission of satisfactory proof.7.DEALERS UNDERTAKINGS: 7.1In case a Product is accepted back by the Dealer on account of such Product being defective, faulty or not of the warranted quality or other genuine or justifiable reason and the sale being canceled, then, in such case notwithstanding what is stated in any agreement executed by the customer, Dealer shall forthwith return the Loan amount to CARS24 or its Lending Partner.",
+        "page_number": null,
+        "chunk_index": 19,
+        "metadata": {
+          "char_count": 919,
+          "word_count": 149
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_20",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "d the sale being canceled, then, in such case notwithstanding what is stated in any agreement executed by the customer, Dealer shall forthwith return the Loan amount to CARS24 or its Lending Partner. 7.2The Dealer shall permit the officers and representatives of CARS24 or its Lending Partner at all reasonable times, to enter upon the Dealers office or shop or showroom for the purpose of inspection of the books and records of the Dealer, only in respect of the records connected with the sanction of Loan to the Customer by CARS24 or its Lending Partner.",
+        "page_number": null,
+        "chunk_index": 20,
+        "metadata": {
+          "char_count": 557,
+          "word_count": 95
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_21",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "p or showroom for the purpose of inspection of the books and records of the Dealer, only in respect of the records connected with the sanction of Loan to the Customer by CARS24 or its Lending Partner.7.3The Dealer shall ensure that its employees  personnel or any other person engaged by him shall at all times conduct themselves within the parameters of all applicable laws and shall not commit or permit the commission of any offense; and in the event of any offense being committed, the Dealer and the person committing the offense shall be liable for all consequences thereof; and CARS24 or its Lending Partner shall not be directly or vicariously liable.7.4The Dealer shall ensure strict compliance of all the guidelines and instructions issued by CARS24 from time to time. 7.5The Dealer shall obtain all licensespermissions authorizations as required under all the applicable laws and keep the same valid by renewing if from time to time as required under the said laws.",
+        "page_number": null,
+        "chunk_index": 21,
+        "metadata": {
+          "char_count": 977,
+          "word_count": 162
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_22",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": ". 7.5The Dealer shall obtain all licensespermissions authorizations as required under all the applicable laws and keep the same valid by renewing if from time to time as required under the said laws. 7.6The Dealer shall indemnify and keep CARS24 or its Lending Partner indemnified for any loss damage or liability that CARS24 or its Lending Partner may incur on account of the unauthorized use of CARS24 or its Lending Partners name or its logo.7.7The Dealer shall ensure delivery of the Product to the Customer only after completion of all the formalities in terms of the Loan agreement signed between the Customer and Cars24 or its Lending Partner. 7.8The Dealer further warrants that it will not do or purport to do any act, deed, thing or matter which will prejudice the interests of Lender, in any manner whatsoever.",
+        "page_number": null,
+        "chunk_index": 22,
+        "metadata": {
+          "char_count": 822,
+          "word_count": 138
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_23",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "rs24 or its Lending Partner. 7.8The Dealer further warrants that it will not do or purport to do any act, deed, thing or matter which will prejudice the interests of Lender, in any manner whatsoever. 7.9The Dealer agrees that it shall solely be responsible for all its employees, agents, representatives ( Dealer Persons ), including contractors or subcontractors including for all compliances under applicable labour and other legislations in respect of the Dealer Persons and that Cars24 shall not be responsible or concerned with the same in any manner.In the event Cars24 incurs or is called upon to incur any liability in this regard, the Dealer shall indemnify Cars24 against the same. 7.10The Dealer shall be liable to provide all the documents deemed requisite for getting the ownership of RC transferred before or after the disbursement of the Loan by the Cars24.",
+        "page_number": null,
+        "chunk_index": 23,
+        "metadata": {
+          "char_count": 873,
+          "word_count": 142
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_24",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "against the same. 7.10The Dealer shall be liable to provide all the documents deemed requisite for getting the ownership of RC transferred before or after the disbursement of the Loan by the Cars24. 7.11In the event the said documents are not submitted to Cars24 within three day from the date of request made by the Cars24 or on failure of transfer of ownership of RC, the entire Loan will become payable forthwith and the Dealer will be responsible for the foreclosure of all such Loans.In the event of non submission of such documents or on failure of transfer of ownership of RC, the Dealer authorizes Cars24 or its Lending Partner to set off all such sums against any payouts due to the Dealer from Cars24 or its Lending Partner. 7.12The Dealer shall sign and comply with the Code of Conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) and Declaration of GST Non  Registration, if applicable, annexed as Annex IA and Annex IB respectively.",
+        "page_number": null,
+        "chunk_index": 24,
+        "metadata": {
+          "char_count": 964,
+          "word_count": 165
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_25",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "d comply with the Code of Conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) and Declaration of GST Non  Registration, if applicable, annexed as Annex IA and Annex IB respectively. 7.13For account reconciliation purposes, Cars24 will seek confirmation from the Dealer regarding no dues on a periodic basis.You have the option to refuse giving that confirmation and support it with appropriate proofs to establish that Cars24 owes any payment to you. If you dont respond within the stipulated time, it will be deemed that you have confirmed that there are no dues payable by Cars24 to you as on the date of the request from Cars24. 7.14You have to confirm your MSME status as per Annexure 1-C.",
+        "page_number": null,
+        "chunk_index": 25,
+        "metadata": {
+          "char_count": 712,
+          "word_count": 119
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_26",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ime, it will be deemed that you have confirmed that there are no dues payable by Cars24 to you as on the date of the request from Cars24. 7.14You have to confirm your MSME status as per Annexure 1-C. 8.INDEMNITY 8.1The Dealer hereby agrees to indemnify and keep CARS24 or its Lending Partner indemnified from the following: (i)From and against any loss, damage, claim, action, proceedings, costs, charges and expenses that may be suffered or incurred by CARS24 or its Lending Partner on account of delay in delivery or non delivery of Products.(ii)Against any and all claims, arising out of, connected with or resulting from any matter arising out of the Products or any claim or demand made by a Customer. (iii)Against any and all claims arising out of, connected with or resulting from any fraudulent acts committed by the Dealer, hisits employees, agents andor servants.",
+        "page_number": null,
+        "chunk_index": 26,
+        "metadata": {
+          "char_count": 874,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_27",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "im or demand made by a Customer. (iii)Against any and all claims arising out of, connected with or resulting from any fraudulent acts committed by the Dealer, hisits employees, agents andor servants. (iv)Against any or all claims arising out of any act or deed of the Dealer which is beyond the scope of his activities or beyond the jurisdictions of the provisions of this Agreement or is a breach of any of the provisions of this Agreement.8.2The indemnities given by the Dealer shall survive the terminations or expiry of this agreement. 8.3Neither Cars24 nor any of its officers, directors, shareholders, employees, consultants, shall have any liability whatsoever for any losses or expenses of any nature suffered by the Dealer or Dealer Persons arising directly or indirectly from any act or omission of the Dealer or Dealer Persons.",
+        "page_number": null,
+        "chunk_index": 27,
+        "metadata": {
+          "char_count": 839,
+          "word_count": 137
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_28",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ave any liability whatsoever for any losses or expenses of any nature suffered by the Dealer or Dealer Persons arising directly or indirectly from any act or omission of the Dealer or Dealer Persons. 8.4Neither Cars24 nor any of its officers, directors, shareholders, employees, consultants, shall have any liability whatsoever for any injury to the Cars24 andor Cars24 Persons suffered while on Cars24s premises, except those which directly result from the gross negligence or willful misconduct of the employees of Lender in their official capacity, as held in a final, non appealable order of a court of competent jurisdiction.Page 4 9.EXCLUSIVITY 9.1The arrangement contained in this Agreement shall be on a non exclusive basis and CARS24 shall be entitled to have or make similar arrangements with other Dealers in the same or other areas.",
+        "page_number": null,
+        "chunk_index": 28,
+        "metadata": {
+          "char_count": 845,
+          "word_count": 134
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_29",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "IVITY 9.1The arrangement contained in this Agreement shall be on a non exclusive basis and CARS24 shall be entitled to have or make similar arrangements with other Dealers in the same or other areas. 10.CONFIDENTIALITY 10.1All information and other material supplied to or received by the Dealer from CARS24 or its Lending Partner, which is by its nature intended to be exclusively for the knowledge of the Dealer or is marked confidential and, any information concerning the arrangement contained in this Agreement (Confidential Information ) shall be kept confidential by the Dealer unless or until compelled to disclose the same (i) by judicial or administrative process, or (ii) by law, or (iii) is required to be furnished to any regulatory or other authority having jurisdiction.10.2The Dealer will take all necessary action to protect the integrity of the Confidential Information against misuse, loss, destruction, deletion and  or alteration.",
+        "page_number": null,
+        "chunk_index": 29,
+        "metadata": {
+          "char_count": 952,
+          "word_count": 147
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_30",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "er authority having jurisdiction.10.2The Dealer will take all necessary action to protect the integrity of the Confidential Information against misuse, loss, destruction, deletion and  or alteration. The Dealer shall not misuse or permit misuse directly or indirectly and commercially exploit the Confidential Information of CARS24 or its Lending Partner for economic or other benefit.10.3The Dealer will not to make or retain any copies or records of any Confidential Information submitted or disclosed by CARS24 or its Lending Partner other than as may be required for the performance of the Dealers obligations under this Agreement. 10.4The Dealer shall notify CARS24 promptly of any unauthorized or improper use or disclosure of the Confidential Information.",
+        "page_number": null,
+        "chunk_index": 30,
+        "metadata": {
+          "char_count": 763,
+          "word_count": 112
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_31",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "red for the performance of the Dealers obligations under this Agreement. 10.4The Dealer shall notify CARS24 promptly of any unauthorized or improper use or disclosure of the Confidential Information. The Dealer hereby unconditionally agrees and undertakes that it shall not and its personnel shall not disclose or publish the terms and conditions of this Agreement or disclose the Confidential Information submitted or disclosed by CARS24 or its Lending Partner under this Agreement to any third party unless such disclosure is required under law.",
+        "page_number": null,
+        "chunk_index": 31,
+        "metadata": {
+          "char_count": 547,
+          "word_count": 83
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_32",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "of this Agreement or disclose the Confidential Information submitted or disclosed by CARS24 or its Lending Partner under this Agreement to any third party unless such disclosure is required under law.10.5The Dealer hereby specifically agrees to indemnify and keep CARS24 or its Lending Partner indemnified at all times against all or any consequences arising out of any breach of this undertaking and shall immediately indemnify and pay to CARS24 or its Lending Partner on demand all damages, loss, costs, expenses or any charges that CARS24 or its Lending Partner any sufferincur in connection with such disclosure of any Confidential Information of CARS24 or its Lending Partner.10.6The confidentiality obligations contained in this Clause 10 shall survive the termination of this Agreement. 10.7The Dealer shall not misuse or permit to misuse directly or indirectly, commercially exploit the information for economic or other benefit not connected with this Agreement.",
+        "page_number": null,
+        "chunk_index": 32,
+        "metadata": {
+          "char_count": 972,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_33",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "on of this Agreement. 10.7The Dealer shall not misuse or permit to misuse directly or indirectly, commercially exploit the information for economic or other benefit not connected with this Agreement. 10.8The Dealer shall return all the information and material to CARS24 at the expirytermination of the Agreement.10.9The Dealer shall not disclose or publish the terms and conditions of this Agreement or the information submitted by CARS24 or its Lending Partner to any third party, except as stated above. 11.TERMINATION 11.1Without prejudice to any other remedies available under this Agreement or under the common law, CARS24 may terminate this agreement for any reason whatsoever by giving 30 (thirty) days notice to the Dealer.",
+        "page_number": null,
+        "chunk_index": 33,
+        "metadata": {
+          "char_count": 733,
+          "word_count": 112
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_34",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "prejudice to any other remedies available under this Agreement or under the common law, CARS24 may terminate this agreement for any reason whatsoever by giving 30 (thirty) days notice to the Dealer. The Dealer may terminate this Agreement by giving a prior written notice of three (3) months, provided that all the obligations, liabilities and Charges of the Dealer to CARS24 outstanding on the date of termination of the Agreement shall survive the termination thereof until discharge thereof in terms of the Agreement.Provided further that such termination shall not affect action taken or initiated by CARS24, under any Loan Application accepted by CARS24 or its Lending Partner, which shall be completed and delivered in the same manner as if this Agreement had not been terminated.",
+        "page_number": null,
+        "chunk_index": 34,
+        "metadata": {
+          "char_count": 788,
+          "word_count": 125
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_35",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "n or initiated by CARS24, under any Loan Application accepted by CARS24 or its Lending Partner, which shall be completed and delivered in the same manner as if this Agreement had not been terminated. 11.2CARS24 shall be entitled to terminate this Agreement forthwith: (i)if the Dealer fails or neglects to observe or commits or allows to be committed any breach of the terms, conditions, provisions or stipulations of this Agreement on its part; or (ii)if the Dealer does or suffers any act or thing or omits to do or suffers to be done any act, thing, deed or, matter whereof, in the consequence of which the business of CARS24 or its Lending Partner may be or is likely to suffer; or (iii)if the Dealer acts beyond the scope of this Agreement or is suspected of falsifying records; or (iv)if the Dealer by its act or omission gives CARS24 or its Lending Partner reasonable ground to consider that its rights may be prejudiced or jeopardized; or (v)if at any time the Dealer uses or attempts to use CARS24 or its Lending Partners name or logo for its own purposes; or (vi)if it is reasonably believed by CARS24 or its Lending Partner that continuation of the relationship with the Dealer under this Agreement is injurious to its goodwill andor business; or (vii)if the Dealer enters into liquidation whether compulsory or voluntary (not being a voluntary liquidation for the purpose of reconstruction or amalgamation) or becomes insolvent or suffers any other insolvency or bankruptcy process or seeks any protection from its creditors or is unable to pay its debts as and when they fall due; or (viii)if at any time there is a change in the ownership, management or control of the Dealer which change is reasonably considered by CARS24 or its Lending Partner to be detrimental to CARS24 or its Lending Partner; or (ix)if the Dealer ceases permanently to carry on its business or substantially the major part thereof.",
+        "page_number": null,
+        "chunk_index": 35,
+        "metadata": {
+          "char_count": 1918,
+          "word_count": 327
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_36",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "onsidered by CARS24 or its Lending Partner to be detrimental to CARS24 or its Lending Partner; or (ix)if the Dealer ceases permanently to carry on its business or substantially the major part thereof.11.3Effect of Termination: The termination of Agreement shall be without prejudice to the accrued rights of the Parties.On the termination of this Agreement: (i)The Dealer shall complete all pending Loan applications accepted by CARS24 or its Lending Partner prior to the date of termination, unless these have been specifically cancelled by mutual agreement; (ii)The Dealer shall deliver to CARS24 all advertising material and unused Loan Documentation of CARS24 or its Lending Partner in hisits possession or custody; (iii)Save to the extent permitted under the terms of any other arrangement or relationship between the Dealer and CARS24, the Dealer will cease to use CARS24 or its Lending Partner name or logo in any manner whatsoever.",
+        "page_number": null,
+        "chunk_index": 36,
+        "metadata": {
+          "char_count": 940,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_37",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ent permitted under the terms of any other arrangement or relationship between the Dealer and CARS24, the Dealer will cease to use CARS24 or its Lending Partner name or logo in any manner whatsoever. Page 5 (iv)The Dealer shall return to CARS24 or all typefaces, blocks, prints and material bearing or containing any of the CARS24 or its Lending Partner trademarks.12.RELATIONSHIP 12.1The Parties agree that they have entered this Agreement as independent contractors and there is no employer employee, principal agent or master  servant relationship or partnershipjoint venture between the Parties. 13.NO WARRANTIES WITHOUT AUTHORITY 13.1The Dealer shall make no statement, representations or claim other than the standard warranty offered by the vehicle manufacturer. 14.PREVALENCE OF AGREEMENT 14.1In the event of inconsistency between the provisions of this Agreement and any other document or writing between the Parties hereto, the provisions of this Agreement shall prevail.",
+        "page_number": null,
+        "chunk_index": 37,
+        "metadata": {
+          "char_count": 982,
+          "word_count": 145
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_38",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "E OF AGREEMENT 14.1In the event of inconsistency between the provisions of this Agreement and any other document or writing between the Parties hereto, the provisions of this Agreement shall prevail. This Agreement shall override and supersede all prior writings, negotiations and oral agreements between the parties relating to the subject matter hereof.15.BENEFITS OF THIS AGREEMENT 15.1This Agreement and the respective rights and obligations of the parties hereto under this Agreement shall endure to the benefit of and be binding on their respective successors. 16.ASSIGNMENT 16.1The Dealer shall not assign, transfer or sub contract any of its rights and obligations under this Agreement. However CARS24 shall be entitled to assigntransfer its rights and benefits under this agreement.",
+        "page_number": null,
+        "chunk_index": 38,
+        "metadata": {
+          "char_count": 792,
+          "word_count": 117
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_39",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ler shall not assign, transfer or sub contract any of its rights and obligations under this Agreement. However CARS24 shall be entitled to assigntransfer its rights and benefits under this agreement. 17.NOTICES 17.1All notices, demands or other communications required to be given or made hereunder shall be in writing and delivered personally or sent by prepaid registered post or facsimile transmission addressed to the intended recipient thereof at its address mentioned above or to such address or facsimile number as any party may from time to time notify to the other parties.Any such notice, demand or communication from CARS24 or its Lending Partner shall be deemed to have been duly served if given or made by facsimile transmission, immediately on receipt of the transmission report by CARS24, or if given personally, on delivery thereof to the address of the recipient, or if given by registered post, five days after posting the same by registered post.",
+        "page_number": null,
+        "chunk_index": 39,
+        "metadata": {
+          "char_count": 966,
+          "word_count": 155
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_40",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "of the transmission report by CARS24, or if given personally, on delivery thereof to the address of the recipient, or if given by registered post, five days after posting the same by registered post. 18.PARTIAL INVALIDITY 18.1The illegality, invalidity or unenforceability or any provision of this Agreement shall not affect the legality, validity or enforceability of this Agreement or its other provisions hereof.19.NO WAIVER 19.1No failure on part of either Party to exercise, and no delay on its part in exercising, any right or remedy under this Agreement will operate as a waiver thereof nor will any single or partial exercise of any right or remedy preclude any other or further exercise thereof or the exercise of any other right or remedy, and the same shall not affect in any manner the effectiveness of any of the provisions of this Agreement.",
+        "page_number": null,
+        "chunk_index": 40,
+        "metadata": {
+          "char_count": 856,
+          "word_count": 141
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_41",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "preclude any other or further exercise thereof or the exercise of any other right or remedy, and the same shall not affect in any manner the effectiveness of any of the provisions of this Agreement. 20.AMENDMENT 20.1This Agreement shall not be amended, altered or modified, or any provision herein shall not be waived except by an instrument in writing expressly referring to this Agreement and signed by the duly authorized representatives of both the Parties.21.FURTHER ACTS 21.1Each of the Parties hereto undertake to execute, do and take all such steps as may be in their respective powers to execute, do and take or procure to be executed, taken or done and to execute all such further documents, agreements and deeds and do all further acts, deeds, matters and things as may be required to give effect to the provisions of this Agreement.",
+        "page_number": null,
+        "chunk_index": 41,
+        "metadata": {
+          "char_count": 846,
+          "word_count": 142
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_42",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "taken or done and to execute all such further documents, agreements and deeds and do all further acts, deeds, matters and things as may be required to give effect to the provisions of this Agreement. 22.FORCE MAJEURE 22.1Neither Party shall be liable for any inability to fulfill their commitments and obligations hereunder occasioned in whole or in part in the event of Force Majeure, fire, war or any other cause beyond their reasonable control.Such Force Majeure occurrence shall be notified to the other Party in writing within a week of such occurrence. If such force majeure continues for a period of one month and the concerned Party is unable to undo the damage caused by such event of Force Majeure, the other Party may be entitled to, though not being obliged, terminate this Agreement.",
+        "page_number": null,
+        "chunk_index": 42,
+        "metadata": {
+          "char_count": 797,
+          "word_count": 134
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_43",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "period of one month and the concerned Party is unable to undo the damage caused by such event of Force Majeure, the other Party may be entitled to, though not being obliged, terminate this Agreement. 23.ARBITRATION 23.1All disputes, differences or claims of any kind whatsoever arising between the Parties hereto out of or in connection with this Agreement or the validity, interpretation, implementation or alleged breach of the terms of this Agreement or omitted to be done pursuant to this Agreement, shall be first attempted to be resolved amicably by mutual negotiations within 30 days after commencement of discussions, failing which such dispute shall be referred to a sole arbitrator to be appointed by CARS24.The arbitration proceedings shall be in accordance with the Arbitration and Conciliation Act, 1996 and shall be conducted in English. The arbitration shall take place at Delhi and shall be governed by the laws of India.",
+        "page_number": null,
+        "chunk_index": 43,
+        "metadata": {
+          "char_count": 938,
+          "word_count": 150
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_44",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "eedings shall be in accordance with the Arbitration and Conciliation Act, 1996 and shall be conducted in English. The arbitration shall take place at Delhi and shall be governed by the laws of India. 24.GOVERNING LAW AND JURISDICTION 24.1This Agreement shall be governed by and construed in accordance with the laws of India.Subject to clause23 of this Agreement the transactions contemplated herein shall be subject to the exclusive jurisdiction of the competent Courts in Delhi only. Page 6 Annexure 1 Name of the Dealership MOHAMMED FAHEEM Entity Pan Number GQNPM7876R Nature of entity Company Partnership Proprietor Address Plot 3A Near Crystal plaza adarsh colony jafar nagar nagpur Authorized representative MOHAMMED FAHEEM MOHAMMED ALEEM Email ID fk3969865gmail.com Phone No.",
+        "page_number": null,
+        "chunk_index": 44,
+        "metadata": {
+          "char_count": 783,
+          "word_count": 118
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_45",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ntity Company Partnership Proprietor Address Plot 3A Near Crystal plaza adarsh colony jafar nagar nagpur Authorized representative MOHAMMED FAHEEM MOHAMMED ALEEM Email ID fk3969865gmail.com Phone No. 9850698786 Date of Agreement 13-Aug-25 Place of signing of Agreement Delhi IN WITNESS WHEREOF, the parties hereto have executed these persons the day and year first herein above mentioned: SIGNED SEALED AND DELIVERED By the within named CARS24 By the hand of Balram Devga SIGNED SEALED AND DELIVERED By the within named Dealer, By the hand of MOHAMMED FAHEEM MOHAMMED ALEEM Page 7 Annex IA CODE OF CONDUCT 1)BACKGROUND AND PURPOSE In accordance with the Directions on Managing Risks and Code of Conduct in Outsourcing of Financial Services by NBFCs (RBI Outsourcing Directions) prescribed by the Reserve Bank of India (RBI) under Non Banking Financial Company Non Systemically Important Non Deposit taking Company (Reserve Bank) Directions, 2016, Cars24 Financial Services Private Limited (Company), being a Non Banking Financial Company (NBFC) is required to put in place a Board approved Code of conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) (Code of Conduct) and obtain their undertaking to abide by the code.",
+        "page_number": null,
+        "chunk_index": 45,
+        "metadata": {
+          "char_count": 1236,
+          "word_count": 189
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_46",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "y (NBFC) is required to put in place a Board approved Code of conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) (Code of Conduct) and obtain their undertaking to abide by the code.As per the RBI Outsourcing Directions, the Company is required to ensure that the DSAs DMAs are properly trained to handle their responsibilities with care and sensitivity, particularly aspects such as soliciting customers, hours of calling, privacy of customer information and conveying the correct terms and conditions of the products on offer etc.It is hereby clarified that in terms of the Servicer Agreement the DSAsDMA has also been referred to as the Borrower. 2)APPLICABILITY This Code of Conduct will apply to all the DSAs DMAs and their representatives involved in marketing and distribution of any loan or other financial product of the Company.",
+        "page_number": null,
+        "chunk_index": 46,
+        "metadata": {
+          "char_count": 857,
+          "word_count": 137
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_47",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "Borrower. 2)APPLICABILITY This Code of Conduct will apply to all the DSAs DMAs and their representatives involved in marketing and distribution of any loan or other financial product of the Company. The Code of Conduct shall form part of the agreement to be signed with the DSA DMA and the DSA DMA and its employees representatives must agree to abide by the Code of Conduct prior to undertaking any direct marketing operation on behalf of the Company.Any DSA DMA or its employee representative found to be violating the Code of Conduct will be blacklisted by the Company and failure to comply with this requirement may result in permanent termination of business of the DSA DMA with the Company at the Companys discretion. The Company will take a DeclarationCum Undertaking (in the format enclosed as Annexure 1) from the DSAs DMAs while signing the agreement with them.",
+        "page_number": null,
+        "chunk_index": 47,
+        "metadata": {
+          "char_count": 873,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_48",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "SA DMA with the Company at the Companys discretion. The Company will take a DeclarationCum Undertaking (in the format enclosed as Annexure 1) from the DSAs DMAs while signing the agreement with them. Further, respective DSA DMA will take a DeclarationCum Undertaking (in the format enclosed as Annexure 1) from each of its employees representatives before assigning them their duties.3)CODE OF CONDUCT The DSA DMA and its employees representatives will be required to follow the Code of Conduct detailed below: 3.1Tele calling a prospective customer A prospect is to be contacted for sourcing a product only under the following circumstances: (i)When prospect has expressed a desire to acquire a loan financial product through the Companys website call centre Branch any other means or is an existing customer who has given consent for accepting calls or solicitation of any product. (ii)When the prospects name telephone no address is available  has been obtained, after taking his her consent.",
+        "page_number": null,
+        "chunk_index": 48,
+        "metadata": {
+          "char_count": 996,
+          "word_count": 156
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_49",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ting customer who has given consent for accepting calls or solicitation of any product. (ii)When the prospects name telephone no address is available  has been obtained, after taking his her consent. The employees representatives of the DSA DMA should not call a person whose namenumber is flagged in any Do Not Disturb list available as per the applicable regulatory statutory guidelines.3.2When to contact a prospect on telephone Telephonic contact must normally be limited between 0900 Hrs and 1900 Hrs. However, it may be ensured that a prospect is contacted only when the call is not expected to inconvenience himher. Calls earlier or later than the prescribed time period may be placed only when the prospect has expressly authorized DSA DMA or its employees to do so either in writing or verbally. 3.3Can the prospects interest be discussed with anybody else? DSA DMA should respect a prospects privacy.",
+        "page_number": null,
+        "chunk_index": 49,
+        "metadata": {
+          "char_count": 911,
+          "word_count": 147
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_50",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ect has expressly authorized DSA DMA or its employees to do so either in writing or verbally. 3.3Can the prospects interest be discussed with anybody else? DSA DMA should respect a prospects privacy. The prospects interest may normally be discussed only with the prospect and any other individualfamily member such as prospects accountant secretary  spouse, authorized by the prospect.3.4Leaving messages and contacting persons other than the prospect Calls must first be placed to the prospect. In the event the prospect is not available, a message may be left for himher. The aim of the message should be to get the prospect to return the call or to check for a convenient time to call again. 3.5No misleading statementsmisrepresentations permitted The Direct Selling Agent and or its employees representatives should not: (i)Mislead the prospect on any service  product offered; (ii)Mislead the prospect about their business or organizations name, or falsely represent themselves.",
+        "page_number": null,
+        "chunk_index": 50,
+        "metadata": {
+          "char_count": 984,
+          "word_count": 151
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_51",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ts employees representatives should not: (i)Mislead the prospect on any service  product offered; (ii)Mislead the prospect about their business or organizations name, or falsely represent themselves. (iii)Make any false unauthorized commitment on behalf of the Company for any facility service.3.6Telemarketing Etiquettes (i)PreCall No calls prior to 0930 Hrs or post 1900 Hrs unless specifically requested. No serial dialing Page 8 No calling on lists unless list is cleared by team leader (ii)During Call Identify yourself, your company and your principal Request permission to proceed If denied permission, apologize and politely disconnect.",
+        "page_number": null,
+        "chunk_index": 51,
+        "metadata": {
+          "char_count": 645,
+          "word_count": 91
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_52",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "n lists unless list is cleared by team leader (ii)During Call Identify yourself, your company and your principal Request permission to proceed If denied permission, apologize and politely disconnect. State reason for your call Always offer to call back on landline, if call is made to a cell number Never interrupt or argue To the extent possible, talk in the language which is most comfortable to the prospect Keep the conversation limited to business matters Check for understanding of the customer if he plans to buy the product Reconfirm next call or next visit details Provide your telephone no, your supervisors name or the Companys relevant officials contact details if asked for by the customer.Thank the customer for hisher time (iii)Post Call Customers who have expressed their lack of interest for the offering should not be called for the next 3 months with the same offer. Provide feedback to the Company on customers who have expressed their desire to be flagged Do Not Disturb.",
+        "page_number": null,
+        "chunk_index": 52,
+        "metadata": {
+          "char_count": 993,
+          "word_count": 164
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_53",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "of interest for the offering should not be called for the next 3 months with the same offer. Provide feedback to the Company on customers who have expressed their desire to be flagged Do Not Disturb. Never call or entertain calls from customers regarding products already sold.Advise them to contact the Customer Service Staff of the Company. 3.7Gifts or bribes The DSA DMA and or its employees representatives must not accept gifts from prospects or bribes of any kind. Any employee representative offered a bribe or payment of any kind by a customer must report the offer to his her management. 3.8Precautions to be taken on visits contacts The DSA DMA and or its employees representatives should: (i)Respect personal space of the prospect (ii)Not enter the prospects residenceoffice against hisher wishes; (iii)Not visit in large numbers. (iv)Respect the prospects privacy.",
+        "page_number": null,
+        "chunk_index": 53,
+        "metadata": {
+          "char_count": 877,
+          "word_count": 140
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_54",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "epresentatives should: (i)Respect personal space of the prospect (ii)Not enter the prospects residenceoffice against hisher wishes; (iii)Not visit in large numbers. (iv)Respect the prospects privacy. (v)If the prospect is not present and only family membersoffice persons are present at the time of the visit, he should end the visit with a request for the prospect to call back.(vi)Provide his telephone number, supervisors name or the Companys concerned officials, if asked for by the customer. (vii)Limit discussions to the business Maintain a professional distance. 3.9Other important aspects  Appearance  Dress Code Employeesrepresentatives of DSA DMA must be appropriately dressed. 3.10Handling of letters  other communication Any communication sent to the prospect should be only in the mode and format approved by the Company.",
+        "page_number": null,
+        "chunk_index": 54,
+        "metadata": {
+          "char_count": 835,
+          "word_count": 120
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_55",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "sentatives of DSA DMA must be appropriately dressed. 3.10Handling of letters  other communication Any communication sent to the prospect should be only in the mode and format approved by the Company. Page 9 DeclarationCum Undertaking to be provided by Direct Sales Agent (DSA) Direct Marketing Agent (DMA) and its employees representatives Date: To Cars24 Financial Services Private Limited 10th Floor, Tower B, Unitech Cyber Park, Sector 39, Gurugram, Haryana  122001 Re: Code of Conduct Dear Sir, In the discharge of my duties, I am obligated to follow the Code of conduct for Direct Sales Agents Direct Marketing Agents (Code of Conduct) a copy of which has been provided to me.I confirm that I have read and understood and agree to abide by the Code of Conduct. I further confirm that the trainer mentioned below has explained the contents in full to me. In case of any violation, non adherence to the said Code, you shall be entitled to take such action against me as you may deem appropriate.",
+        "page_number": null,
+        "chunk_index": 55,
+        "metadata": {
+          "char_count": 999,
+          "word_count": 168
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_56",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "r mentioned below has explained the contents in full to me. In case of any violation, non adherence to the said Code, you shall be entitled to take such action against me as you may deem appropriate. Signature: Date: 13-Aug-25 Name of the Dealer : MOHAMMED FAHEEM MOHAMMED ALEEM Page 10 Annex IB Declaration of GST Non Registration (If applicable) To, Cars24 Financial Services Private Limited 10th Floor, Tower B, Unitech Cyber Park, Sector 39, Gurugram, Haryana  122001 Subject: Declaration regarding non requirement to be registered under the Central  State UT Integrated Goods and Services Tax Act, 2017 Particulars Details Legal Name of Entity (I We) MOHAMMED FAHEEM Registered Office Address Plot 3A Near Crystal plaza adarsh colony jafar nagar nagpur Name of Proprietor Partner signing this form MOHAMMED FAHEEM MOHAMMED ALEEM Email ID fk3969865gmail.com Contact No 9850698786 PAN No GQNPM7876R We hereby state that we are not required to get ourselves registered under the Goods and Services Tax Act, 2017 as (please  and fill below for the relevant reason) We deal in to the category of goods or services (Nature of goods  services) which are exempted under the Goods and Service Tax Act, 2017.",
+        "page_number": null,
+        "chunk_index": 56,
+        "metadata": {
+          "char_count": 1203,
+          "word_count": 195
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_57",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "Act, 2017 as (please  and fill below for the relevant reason) We deal in to the category of goods or services (Nature of goods  services) which are exempted under the Goods and Service Tax Act, 2017.We have the turnover below the taxable limit as specified under the Goods and Services Tax Act, 2017.IWe hereby also confirm that if during any financial year Iwe decide or require to register under the GST in that case Iwe undertake to provide all the requisite information and documents. Iwe also undertake the responsibility to inform all subsequent changes in constitution or working of firm. IWe request you to treat this communication as a declaration regarding non requirement to be registered under the Goods and Service Tax Act, 2017. IWe acknowledge that information furnished above are true and best to our knowledge and that Iwe shall be bound by the acts of duly constituted attorney.",
+        "page_number": null,
+        "chunk_index": 57,
+        "metadata": {
+          "char_count": 898,
+          "word_count": 150
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_58",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "ed under the Goods and Service Tax Act, 2017. IWe acknowledge that information furnished above are true and best to our knowledge and that Iwe shall be bound by the acts of duly constituted attorney. In case of above information is found to be incorrect later, any payment shall be withheld by Cars24 Financial Services Private Limited and any unprocessed payment shall remain withheld by the company.",
+        "page_number": null,
+        "chunk_index": 58,
+        "metadata": {
+          "char_count": 401,
+          "word_count": 67
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_59",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "n case of above information is found to be incorrect later, any payment shall be withheld by Cars24 Financial Services Private Limited and any unprocessed payment shall remain withheld by the company.Name of Dealer MOHAMMED FAHEEM MOHAMMED ALEEM Name  Signature  MOHAMMED FAHEEM MOHAMMED ALEEM Authorised Signatory Date: 13-Aug-25 Page 11 Annexure 1 C With reference to the MCA Notification, dated 22nd January, 2019, all companies, who get supplies of goods or services from Micro and Small Enterprises and whose payments to Micro and Small Enterprise suppliers exceeds Forty Five days from the date of acceptance or the date of deemed acceptance of the goods or services as per the provisions of section 9 of the Micro, Small and Medium Enterprises Development Act, 2006 shall submit a half yearly return in Form MSME-1 i.e.the details of outstanding dues to Micro or Small enterprise existing on the date of Notification to the Ministry of Corporate Affairs.",
+        "page_number": null,
+        "chunk_index": 59,
+        "metadata": {
+          "char_count": 962,
+          "word_count": 154
+        }
+      },
+      {
+        "chunk_id": "9be1f47e-e6e2-4675-9712-f90645a45c74_chunk_60",
+        "document_id": "9be1f47e-e6e2-4675-9712-f90645a45c74",
+        "content": "Act, 2006 shall submit a half yearly return in Form MSME-1 i.e.the details of outstanding dues to Micro or Small enterprise existing on the date of Notification to the Ministry of Corporate Affairs. To enable Cars24 to comply with the above notification, the Dealer confirms as follows: We are not a MSME and are not registered as MSME under Micro, Small and Medium Enterprise Development Act, 2006.OR We are a MSME and registered as MSME under Micro, Small and Medium Enterprise Development Act, 2006. If you declare that you are MSME, then please also share duly attested copy of MSME Registration Certificate and PAN along with the agreement. Name of Dealer MOHAMMED FAHEEM MOHAMMED ALEEM Name  Signature  MOHAMMED FAHEEM MOHAMMED ALEEM Authorised Signatory Date: 13-Aug-25",
+        "page_number": null,
+        "chunk_index": 60,
+        "metadata": {
+          "char_count": 778,
+          "word_count": 125
+        }
+      }
+    ],
+    "error_message": null
+  },
+  "29160a02-471b-4da3-9ad6-ab144914758e": {
+    "document_id": "29160a02-471b-4da3-9ad6-ab144914758e",
+    "status": "ready",
+    "metadata": {
+      "filename": "1872ca18-e7cf-4245-85ab-35832e2f102c.pdf",
+      "original_filename": "MOHAMMED FAHEEM - 134555 (1).pdf",
+      "file_size": 191446,
+      "document_type": "pdf",
+      "upload_timestamp": "2025-09-26 20:20:26.946235",
+      "processing_timestamp": "2025-09-26 20:20:26.999107",
+      "page_count": 11,
+      "word_count": 6661
+    },
+    "chunks": [
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_0",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "Page 1 AGREEMENT This Agreement is executed on the date and at the place as mentioned in Annexure 1, by and between Cars24 Financial Services Pvt. Ltd. , a company registered in India, having its registered office at 10th Floor, Tower B, Unitech Cyber Park, Sector 39, Gurgaon 122001, Haryana (hereinafter referred to as CARS24 , which term shall, unless it is repugnant to the context or meaning hereof, be deemed to include its successors and assigns) AND the Dealer, as defined in Annexure 1, which expression shall, unless repugnant to the context and meaning thereof, mean and include its respective heirs, executors, administrators and successors and partner(s) and their successors. CARS24 and Dealer shall hereinafter be collectively referred to as Parties and individually as Party.",
+        "page_number": null,
+        "chunk_index": 0,
+        "metadata": {
+          "char_count": 792,
+          "word_count": 126
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_1",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "s respective heirs, executors, administrators and successors and partner(s) and their successors. CARS24 and Dealer shall hereinafter be collectively referred to as Parties and individually as Party. WHEREAS the Dealer is engaged in the business of sale of the Products (hereinafter defined) and in the course of its business a number of persons (hereinafter referred to as the Customers ) approach the Dealer to arrange for finance for the Products to be purchased by them from the Dealer or to arrange finance for the Products owned by them.AND WHEREAS the Dealer has approached Cars24 to provide finance to such Customers.",
+        "page_number": null,
+        "chunk_index": 1,
+        "metadata": {
+          "char_count": 626,
+          "word_count": 100
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_2",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "inance for the Products to be purchased by them from the Dealer or to arrange finance for the Products owned by them.AND WHEREAS the Dealer has approached Cars24 to provide finance to such Customers. AND WHEREAS CARS24 has agreed to an arrangement with the Dealer, pursuant to which either Cars24 or its Lending Partner would in its sole discretion on a case to case basis provide finance to the Customers of the Dealer for purchase of Products or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers, on the terms and conditions as set forth hereunder.",
+        "page_number": null,
+        "chunk_index": 2,
+        "metadata": {
+          "char_count": 612,
+          "word_count": 105
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_3",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "Dealer for purchase of Products or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers, on the terms and conditions as set forth hereunder.NOW THEREFORE, IN CONSIDERATION OF THE MUTUAL PROMISES CONTAINED HEREIN AND OTHER GOOD AND SUFFICIENT CONSIDERATION, THE RECEIPT AND ADEQUACY OF WHICH IS HEREBY ACKNOWLEDGED, THE PARTIES HERETO AGREE AS FOLLOWS: 1.INTERPRETATION: In this Agreement, unless the context otherwise requires the following terms and expressions shall bear the following meanings: A.Customer means a person whowhich intends to purchase a Product from the Dealer.B.Loan means the loan which may be provided by CARS24 or its Lending Partner to a customer for i.Purchase of a Product by the Customer from the Dealer and ii.Refinance of Products owned by the Customer or loan against Product owned by the Customer. C.Loan Application means an application to be filed by a Customer, who desires to obtain a Loan.",
+        "page_number": null,
+        "chunk_index": 3,
+        "metadata": {
+          "char_count": 985,
+          "word_count": 155
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_4",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "aler and ii.Refinance of Products owned by the Customer or loan against Product owned by the Customer. C.Loan Application means an application to be filed by a Customer, who desires to obtain a Loan. D.Loan Documentation means the Loan Application, Loan agreement and other related documents, as specified by CARS24 or its Lending Partner from time to time.E.Manufacturer means the manufacturer of the Product. F.Product means Pre owned Car, sold or distributed by Dealer. Clauses, headings used herein are for the sake of ease of reference only and shall not affect the interpretation of the provisions of this Agreement. Clauses pertaining to specific products shall be read in the specific context. Words using the singular or plural number also include the plural or singular number, respectively.",
+        "page_number": null,
+        "chunk_index": 4,
+        "metadata": {
+          "char_count": 802,
+          "word_count": 126
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_5",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "s of this Agreement. Clauses pertaining to specific products shall be read in the specific context. Words using the singular or plural number also include the plural or singular number, respectively. The term Recital, Clause, sub Clause and Annexure refers to the specified recital, clause, sub clause and annexure, respectively, of this Agreement and shall form and read as a part of this Agreement.2.ARRANGEMENT BETWEEN PARTIES: 2.1At the request of the Dealer and on the basis of the undertakings by the Dealer, as hereinafter provided, CARS24 or its Lending Partner has agreed to consider the granting of Loans to Customers for the purchase of Products by Customers from the Dealer or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers.",
+        "page_number": null,
+        "chunk_index": 5,
+        "metadata": {
+          "char_count": 802,
+          "word_count": 129
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_6",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ing of Loans to Customers for the purchase of Products by Customers from the Dealer or provide finance against the Products owned by the Customers or re financing the Products owned by the Customers. 2.2In consideration of CARS24 or its Lending Partner agreeing to consider granting Loan to the Dealers Customers, the Dealer has agreed to provide certain services relating to the granting of Loans, as mentioned herein below, for and on behalf of CARS24 or its Lending Partner, on the terms and conditions herein contained.2.3The decision of CARS24 or its Lending Partner as to granting of the Loan shall be at its sole discretion and shall not be challenged or open for scrutiny by either the Dealer or the Customer. CARS24 or its Lending Partner shall not be obliged to accept every Loan Application forwarded or recommended by the Dealer. 3.TERM: 3.1This Agreement shall remain in effect until terminated in the manner provided for under this agreement.",
+        "page_number": null,
+        "chunk_index": 6,
+        "metadata": {
+          "char_count": 957,
+          "word_count": 158
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_7",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "be obliged to accept every Loan Application forwarded or recommended by the Dealer. 3.TERM: 3.1This Agreement shall remain in effect until terminated in the manner provided for under this agreement. 4.DEALERS RESPONSIBILITIES 4.1The Dealer shall explain the finance schemes facilities provided by CARS24 or its Lending Partner for purchase or refinance of the Products to the Customers.Page 2 4.2The Dealer will prominently display and exhibit in his showroom or shop or office necessary brochures, posters and sale advertising material of CARS24 or its Lending Partner, as provided to the Dealer by CARS24 or its Lending Partner from time to time. It is clarified that CARS24 or its Lending Partner and the Dealer may, from time to time, undertake joint publicity andor advertising. All the expenses in this regard shall be shared as mutually agreed from time to time.",
+        "page_number": null,
+        "chunk_index": 7,
+        "metadata": {
+          "char_count": 871,
+          "word_count": 138
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_8",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "CARS24 or its Lending Partner and the Dealer may, from time to time, undertake joint publicity andor advertising. All the expenses in this regard shall be shared as mutually agreed from time to time. 4.3If the Dealer finds that the Customer fulfills the eligibility criteria notified to the Dealer by CARS24 from time to time, the Dealer will obtain from the Customer a duly filled Loan Application and other initial documents, as specified by CARS24 or its Lending Partner from time to time, to enable CARS24 or its Lending Partner to process the Loan Application of the Customer, AND 4.4Forward the duly completed Loan Application and initial documents to CARS24, for its approval.",
+        "page_number": null,
+        "chunk_index": 8,
+        "metadata": {
+          "char_count": 683,
+          "word_count": 113
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_9",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "to time, to enable CARS24 or its Lending Partner to process the Loan Application of the Customer, AND 4.4Forward the duly completed Loan Application and initial documents to CARS24, for its approval.It is expressly agreed that CARS24 or its Lending Partner shall not be obliged to accept every Loan Application received from the Dealer and CARS24 or its Lending Partner may, in its sole and absolute discretion and notwithstanding that the Customer fulfills its eligibility criteria, be entitled to reject any Loan Application.CARS24 or its Lending Partner shall not be obligated to provide reasons for rejection of any Loan Application to the Dealer. The Dealer shall not either directly or indirectly make or give any commitment on behalf of CARS24 or its Lending Partner relating to acceptance of the Loan Application of the Customer.",
+        "page_number": null,
+        "chunk_index": 9,
+        "metadata": {
+          "char_count": 839,
+          "word_count": 134
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_10",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "o the Dealer. The Dealer shall not either directly or indirectly make or give any commitment on behalf of CARS24 or its Lending Partner relating to acceptance of the Loan Application of the Customer. 4.5On receipt of confirmation from CARS24 or its Lending Partner of its acceptance of a Loan Application, the Dealer shall obtain completed Loan Documentation (as per CARS24 policy) from the Customer and send the same to CARS24.The Dealer shall ensure that in all cases the Loan Documentation are completed by the Customer in his own hand and are completely filled in all respect and all the legal requirements as indicated by CARS24 or its Lending Partner are duly completed. 4.6Ensure that the payment of the disbursed Loan amount is made to the bonafide Customer intending to buy the Product from the Dealer or the Cars24 Services Dealer DTA account.",
+        "page_number": null,
+        "chunk_index": 10,
+        "metadata": {
+          "char_count": 854,
+          "word_count": 143
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_11",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "er are duly completed. 4.6Ensure that the payment of the disbursed Loan amount is made to the bonafide Customer intending to buy the Product from the Dealer or the Cars24 Services Dealer DTA account. In addition to the same the Cars24 shall ensure that an Authorization Letter  Payment Instruction for Loan for Loan is signed by the Customer and the same shall be shared by the Lender to the Dealer.4.7The Dealer shall ensure that once the Loan is disbursed to the Customer by Cars24 or its Lending Partner, it shall in no event cancel the sale of Product to the Customer or buyback the Product from the Customers without approval of Cars24. 4.8Provided that, in case the Customer decides against availing the Loan, the refund for the monies paid towards the Loan amount is made to CARS24 or its Lending Partner within 48 (forty eight) hours of such cancellation irrespective of the payment being made to any third party, failing which the Dealer shall be liable to pay an interest of 18 p.a.",
+        "page_number": null,
+        "chunk_index": 11,
+        "metadata": {
+          "char_count": 993,
+          "word_count": 173
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_12",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ts Lending Partner within 48 (forty eight) hours of such cancellation irrespective of the payment being made to any third party, failing which the Dealer shall be liable to pay an interest of 18 p.a. till the refund of Loan amount.4.9The Dealer shall based on the written instructions issued from time to time by CARS24 or its Lending Partner about the terms of finance correspond with all Customers and explain all terms and conditions relating to the Loan. 4.10Post sanction of a Loan, the Dealer shall collect down payment from the Customer, which shall be the sale price of the product less the amount of loan granted by Cars24 or its Lending Partner. The Dealer shall also provide adequate proof thereof ( Down Payment Proof ) to Cars24. 4.11The Dealer shall deliver to CARS24 a copy of the delivery challan evidencing delivery of the Product duly acknowledged by the Customer ( Product Delivery Proof ).",
+        "page_number": null,
+        "chunk_index": 12,
+        "metadata": {
+          "char_count": 910,
+          "word_count": 155
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_13",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "Down Payment Proof ) to Cars24. 4.11The Dealer shall deliver to CARS24 a copy of the delivery challan evidencing delivery of the Product duly acknowledged by the Customer ( Product Delivery Proof ). 4.12The Dealer shall be responsible for, and shall pay, all taxes, levies, duties, assessments and deductions of every nature required by law in connection with the provision of Services under this Agreement.4.13The Dealer shall be responsible as and when requested by CARS24 or its Lending Partner, to assist CARS24 or its Lending Partner in the recoveries of outstanding dues from all defaulting Customers including non  starters or skip cases. 4.14The Dealer shall allow the representatives  officers of CARS24 to audit the records of the Dealer at all reasonable times with adequate notice only in respect of records connected with the sanction of Loan by CARS24 or its Lending Partner to its Customers.",
+        "page_number": null,
+        "chunk_index": 13,
+        "metadata": {
+          "char_count": 908,
+          "word_count": 145
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_14",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ARS24 to audit the records of the Dealer at all reasonable times with adequate notice only in respect of records connected with the sanction of Loan by CARS24 or its Lending Partner to its Customers. 4.15The Dealer shall deliver to CARS24 a copy of the valid Motor insurance copy of the vehicle financed before delivery ( Motor Insurance copy ).4.16The dealer shall be responsible to provide all the required documents of Seller and Buyer which are required for RC transfer and Hypothecation Addition of financier along with the alignment with seller for party-peshi (as and when required).",
+        "page_number": null,
+        "chunk_index": 14,
+        "metadata": {
+          "char_count": 591,
+          "word_count": 97
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_15",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "all the required documents of Seller and Buyer which are required for RC transfer and Hypothecation Addition of financier along with the alignment with seller for party-peshi (as and when required). In case the dealer is not able to fulfill the responsibilities, then the loan shall be foreclosed by the dealer 5.COLLECTION OF CHARGES 5.1On execution of the Loan Documentation, the Dealer shall collect from each Customer processing charges, non  refundable service charges, security charges and such other charges as may be decided by CARS24 or its Lending Partner in its sole discretion and specified to the Dealer from time to time (hereinafter referred to as Charges ) in accordance with any scheme(s) of CARS24 or its Lending Partner.Such Charges collected by the Dealer from the Customer shall be adjusted with the disbursement amount paid by CARS24 to the Dealer on receiving the receipt for such collection of Charges from the Dealer.",
+        "page_number": null,
+        "chunk_index": 15,
+        "metadata": {
+          "char_count": 944,
+          "word_count": 152
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_16",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "Charges collected by the Dealer from the Customer shall be adjusted with the disbursement amount paid by CARS24 to the Dealer on receiving the receipt for such collection of Charges from the Dealer. 5.2In case the Customer cancels the booking at a later date prior to the delivery of the Productvehicle then the Dealer shall refund all the monies, inclusive of Loan amount disbursed by CARS24 and all other monies received from Customer, only to CARS24.5.3If the Dealer fails to pay to CARS24 or its Lending Partner the Charges, as mentioned in clause 5 (a) above, CARS24 or its Lending Partner shall be entitled to deduct the same from the Loan amount to be disbursed to the Dealer and to pay to the Dealer only the balance Loan amount. Alternatively, Cars24 can deduct that Charges from any other payout earnings of the Dealer.",
+        "page_number": null,
+        "chunk_index": 16,
+        "metadata": {
+          "char_count": 831,
+          "word_count": 143
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_17",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "e from the Loan amount to be disbursed to the Dealer and to pay to the Dealer only the balance Loan amount. Alternatively, Cars24 can deduct that Charges from any other payout earnings of the Dealer. 6.CARS24s RESPONSIBILITIES 6.1CARS24 shall, from time to time, provide to the Dealer appropriate details of its standard eligibility criteria for granting Loans to the Customers.These criteria are subject to change at the sole discretion of CARS24, without notice to the Dealer. 6.2On receiving the Loan Documentation and due verification thereof, CARS24 shall, if satisfied that the Loan Documentation is complete in all respects and subject to Clause 4, disburse to the Dealer the Loan amount, which shall be equal to the sale price of the Product less the down payment paid by the Customer to the Dealer.",
+        "page_number": null,
+        "chunk_index": 17,
+        "metadata": {
+          "char_count": 808,
+          "word_count": 133
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_18",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "mplete in all respects and subject to Clause 4, disburse to the Dealer the Loan amount, which shall be equal to the sale price of the Product less the down payment paid by the Customer to the Dealer. 6.3In the event that the Dealer fails to pay to CARS24 the Charges as mentioned in Clause 5 (a), CARS24 shall prior to disbursal of the Loan amount, deduct from there the charges payable by the Dealer to CARS24 under Clause 5 (a).6.4The disbursement of the Loan amount shall be made by CARS24 only after CARS24 receives a copy of the delivery challan in respect of the Product duly acknowledged by the Customer. 6.5CARS24 may, at its sole discretion, provide to the Dealer, brochures, posters and point of sale advertising material for the loans. Page 3 6.6CARS24 shall provide to the Dealer adequate Loan Documentation to enable the Dealer to provide the same to eligible Customers.",
+        "page_number": null,
+        "chunk_index": 18,
+        "metadata": {
+          "char_count": 884,
+          "word_count": 154
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_19",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "posters and point of sale advertising material for the loans. Page 3 6.6CARS24 shall provide to the Dealer adequate Loan Documentation to enable the Dealer to provide the same to eligible Customers. 6.7CARS24 shall make all deductions on payments of the Fee, as required by law and provide the Dealer with the requisite certifications for deduction of tax at source andor reimburse the Dealer such amounts as paid by Dealer on account of any statutory tax legally due from CARS24 upon submission of satisfactory proof.7.DEALERS UNDERTAKINGS: 7.1In case a Product is accepted back by the Dealer on account of such Product being defective, faulty or not of the warranted quality or other genuine or justifiable reason and the sale being canceled, then, in such case notwithstanding what is stated in any agreement executed by the customer, Dealer shall forthwith return the Loan amount to CARS24 or its Lending Partner.",
+        "page_number": null,
+        "chunk_index": 19,
+        "metadata": {
+          "char_count": 919,
+          "word_count": 149
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_20",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "d the sale being canceled, then, in such case notwithstanding what is stated in any agreement executed by the customer, Dealer shall forthwith return the Loan amount to CARS24 or its Lending Partner. 7.2The Dealer shall permit the officers and representatives of CARS24 or its Lending Partner at all reasonable times, to enter upon the Dealers office or shop or showroom for the purpose of inspection of the books and records of the Dealer, only in respect of the records connected with the sanction of Loan to the Customer by CARS24 or its Lending Partner.",
+        "page_number": null,
+        "chunk_index": 20,
+        "metadata": {
+          "char_count": 557,
+          "word_count": 95
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_21",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "p or showroom for the purpose of inspection of the books and records of the Dealer, only in respect of the records connected with the sanction of Loan to the Customer by CARS24 or its Lending Partner.7.3The Dealer shall ensure that its employees  personnel or any other person engaged by him shall at all times conduct themselves within the parameters of all applicable laws and shall not commit or permit the commission of any offense; and in the event of any offense being committed, the Dealer and the person committing the offense shall be liable for all consequences thereof; and CARS24 or its Lending Partner shall not be directly or vicariously liable.7.4The Dealer shall ensure strict compliance of all the guidelines and instructions issued by CARS24 from time to time. 7.5The Dealer shall obtain all licensespermissions authorizations as required under all the applicable laws and keep the same valid by renewing if from time to time as required under the said laws.",
+        "page_number": null,
+        "chunk_index": 21,
+        "metadata": {
+          "char_count": 977,
+          "word_count": 162
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_22",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": ". 7.5The Dealer shall obtain all licensespermissions authorizations as required under all the applicable laws and keep the same valid by renewing if from time to time as required under the said laws. 7.6The Dealer shall indemnify and keep CARS24 or its Lending Partner indemnified for any loss damage or liability that CARS24 or its Lending Partner may incur on account of the unauthorized use of CARS24 or its Lending Partners name or its logo.7.7The Dealer shall ensure delivery of the Product to the Customer only after completion of all the formalities in terms of the Loan agreement signed between the Customer and Cars24 or its Lending Partner. 7.8The Dealer further warrants that it will not do or purport to do any act, deed, thing or matter which will prejudice the interests of Lender, in any manner whatsoever.",
+        "page_number": null,
+        "chunk_index": 22,
+        "metadata": {
+          "char_count": 822,
+          "word_count": 138
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_23",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "rs24 or its Lending Partner. 7.8The Dealer further warrants that it will not do or purport to do any act, deed, thing or matter which will prejudice the interests of Lender, in any manner whatsoever. 7.9The Dealer agrees that it shall solely be responsible for all its employees, agents, representatives ( Dealer Persons ), including contractors or subcontractors including for all compliances under applicable labour and other legislations in respect of the Dealer Persons and that Cars24 shall not be responsible or concerned with the same in any manner.In the event Cars24 incurs or is called upon to incur any liability in this regard, the Dealer shall indemnify Cars24 against the same. 7.10The Dealer shall be liable to provide all the documents deemed requisite for getting the ownership of RC transferred before or after the disbursement of the Loan by the Cars24.",
+        "page_number": null,
+        "chunk_index": 23,
+        "metadata": {
+          "char_count": 873,
+          "word_count": 142
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_24",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "against the same. 7.10The Dealer shall be liable to provide all the documents deemed requisite for getting the ownership of RC transferred before or after the disbursement of the Loan by the Cars24. 7.11In the event the said documents are not submitted to Cars24 within three day from the date of request made by the Cars24 or on failure of transfer of ownership of RC, the entire Loan will become payable forthwith and the Dealer will be responsible for the foreclosure of all such Loans.In the event of non submission of such documents or on failure of transfer of ownership of RC, the Dealer authorizes Cars24 or its Lending Partner to set off all such sums against any payouts due to the Dealer from Cars24 or its Lending Partner. 7.12The Dealer shall sign and comply with the Code of Conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) and Declaration of GST Non  Registration, if applicable, annexed as Annex IA and Annex IB respectively.",
+        "page_number": null,
+        "chunk_index": 24,
+        "metadata": {
+          "char_count": 964,
+          "word_count": 165
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_25",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "d comply with the Code of Conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) and Declaration of GST Non  Registration, if applicable, annexed as Annex IA and Annex IB respectively. 7.13For account reconciliation purposes, Cars24 will seek confirmation from the Dealer regarding no dues on a periodic basis.You have the option to refuse giving that confirmation and support it with appropriate proofs to establish that Cars24 owes any payment to you. If you dont respond within the stipulated time, it will be deemed that you have confirmed that there are no dues payable by Cars24 to you as on the date of the request from Cars24. 7.14You have to confirm your MSME status as per Annexure 1-C.",
+        "page_number": null,
+        "chunk_index": 25,
+        "metadata": {
+          "char_count": 712,
+          "word_count": 119
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_26",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ime, it will be deemed that you have confirmed that there are no dues payable by Cars24 to you as on the date of the request from Cars24. 7.14You have to confirm your MSME status as per Annexure 1-C. 8.INDEMNITY 8.1The Dealer hereby agrees to indemnify and keep CARS24 or its Lending Partner indemnified from the following: (i)From and against any loss, damage, claim, action, proceedings, costs, charges and expenses that may be suffered or incurred by CARS24 or its Lending Partner on account of delay in delivery or non delivery of Products.(ii)Against any and all claims, arising out of, connected with or resulting from any matter arising out of the Products or any claim or demand made by a Customer. (iii)Against any and all claims arising out of, connected with or resulting from any fraudulent acts committed by the Dealer, hisits employees, agents andor servants.",
+        "page_number": null,
+        "chunk_index": 26,
+        "metadata": {
+          "char_count": 874,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_27",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "im or demand made by a Customer. (iii)Against any and all claims arising out of, connected with or resulting from any fraudulent acts committed by the Dealer, hisits employees, agents andor servants. (iv)Against any or all claims arising out of any act or deed of the Dealer which is beyond the scope of his activities or beyond the jurisdictions of the provisions of this Agreement or is a breach of any of the provisions of this Agreement.8.2The indemnities given by the Dealer shall survive the terminations or expiry of this agreement. 8.3Neither Cars24 nor any of its officers, directors, shareholders, employees, consultants, shall have any liability whatsoever for any losses or expenses of any nature suffered by the Dealer or Dealer Persons arising directly or indirectly from any act or omission of the Dealer or Dealer Persons.",
+        "page_number": null,
+        "chunk_index": 27,
+        "metadata": {
+          "char_count": 839,
+          "word_count": 137
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_28",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ave any liability whatsoever for any losses or expenses of any nature suffered by the Dealer or Dealer Persons arising directly or indirectly from any act or omission of the Dealer or Dealer Persons. 8.4Neither Cars24 nor any of its officers, directors, shareholders, employees, consultants, shall have any liability whatsoever for any injury to the Cars24 andor Cars24 Persons suffered while on Cars24s premises, except those which directly result from the gross negligence or willful misconduct of the employees of Lender in their official capacity, as held in a final, non appealable order of a court of competent jurisdiction.Page 4 9.EXCLUSIVITY 9.1The arrangement contained in this Agreement shall be on a non exclusive basis and CARS24 shall be entitled to have or make similar arrangements with other Dealers in the same or other areas.",
+        "page_number": null,
+        "chunk_index": 28,
+        "metadata": {
+          "char_count": 845,
+          "word_count": 134
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_29",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "IVITY 9.1The arrangement contained in this Agreement shall be on a non exclusive basis and CARS24 shall be entitled to have or make similar arrangements with other Dealers in the same or other areas. 10.CONFIDENTIALITY 10.1All information and other material supplied to or received by the Dealer from CARS24 or its Lending Partner, which is by its nature intended to be exclusively for the knowledge of the Dealer or is marked confidential and, any information concerning the arrangement contained in this Agreement (Confidential Information ) shall be kept confidential by the Dealer unless or until compelled to disclose the same (i) by judicial or administrative process, or (ii) by law, or (iii) is required to be furnished to any regulatory or other authority having jurisdiction.10.2The Dealer will take all necessary action to protect the integrity of the Confidential Information against misuse, loss, destruction, deletion and  or alteration.",
+        "page_number": null,
+        "chunk_index": 29,
+        "metadata": {
+          "char_count": 952,
+          "word_count": 147
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_30",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "er authority having jurisdiction.10.2The Dealer will take all necessary action to protect the integrity of the Confidential Information against misuse, loss, destruction, deletion and  or alteration. The Dealer shall not misuse or permit misuse directly or indirectly and commercially exploit the Confidential Information of CARS24 or its Lending Partner for economic or other benefit.10.3The Dealer will not to make or retain any copies or records of any Confidential Information submitted or disclosed by CARS24 or its Lending Partner other than as may be required for the performance of the Dealers obligations under this Agreement. 10.4The Dealer shall notify CARS24 promptly of any unauthorized or improper use or disclosure of the Confidential Information.",
+        "page_number": null,
+        "chunk_index": 30,
+        "metadata": {
+          "char_count": 763,
+          "word_count": 112
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_31",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "red for the performance of the Dealers obligations under this Agreement. 10.4The Dealer shall notify CARS24 promptly of any unauthorized or improper use or disclosure of the Confidential Information. The Dealer hereby unconditionally agrees and undertakes that it shall not and its personnel shall not disclose or publish the terms and conditions of this Agreement or disclose the Confidential Information submitted or disclosed by CARS24 or its Lending Partner under this Agreement to any third party unless such disclosure is required under law.",
+        "page_number": null,
+        "chunk_index": 31,
+        "metadata": {
+          "char_count": 547,
+          "word_count": 83
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_32",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "of this Agreement or disclose the Confidential Information submitted or disclosed by CARS24 or its Lending Partner under this Agreement to any third party unless such disclosure is required under law.10.5The Dealer hereby specifically agrees to indemnify and keep CARS24 or its Lending Partner indemnified at all times against all or any consequences arising out of any breach of this undertaking and shall immediately indemnify and pay to CARS24 or its Lending Partner on demand all damages, loss, costs, expenses or any charges that CARS24 or its Lending Partner any sufferincur in connection with such disclosure of any Confidential Information of CARS24 or its Lending Partner.10.6The confidentiality obligations contained in this Clause 10 shall survive the termination of this Agreement. 10.7The Dealer shall not misuse or permit to misuse directly or indirectly, commercially exploit the information for economic or other benefit not connected with this Agreement.",
+        "page_number": null,
+        "chunk_index": 32,
+        "metadata": {
+          "char_count": 972,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_33",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "on of this Agreement. 10.7The Dealer shall not misuse or permit to misuse directly or indirectly, commercially exploit the information for economic or other benefit not connected with this Agreement. 10.8The Dealer shall return all the information and material to CARS24 at the expirytermination of the Agreement.10.9The Dealer shall not disclose or publish the terms and conditions of this Agreement or the information submitted by CARS24 or its Lending Partner to any third party, except as stated above. 11.TERMINATION 11.1Without prejudice to any other remedies available under this Agreement or under the common law, CARS24 may terminate this agreement for any reason whatsoever by giving 30 (thirty) days notice to the Dealer.",
+        "page_number": null,
+        "chunk_index": 33,
+        "metadata": {
+          "char_count": 733,
+          "word_count": 112
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_34",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "prejudice to any other remedies available under this Agreement or under the common law, CARS24 may terminate this agreement for any reason whatsoever by giving 30 (thirty) days notice to the Dealer. The Dealer may terminate this Agreement by giving a prior written notice of three (3) months, provided that all the obligations, liabilities and Charges of the Dealer to CARS24 outstanding on the date of termination of the Agreement shall survive the termination thereof until discharge thereof in terms of the Agreement.Provided further that such termination shall not affect action taken or initiated by CARS24, under any Loan Application accepted by CARS24 or its Lending Partner, which shall be completed and delivered in the same manner as if this Agreement had not been terminated.",
+        "page_number": null,
+        "chunk_index": 34,
+        "metadata": {
+          "char_count": 788,
+          "word_count": 125
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_35",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "n or initiated by CARS24, under any Loan Application accepted by CARS24 or its Lending Partner, which shall be completed and delivered in the same manner as if this Agreement had not been terminated. 11.2CARS24 shall be entitled to terminate this Agreement forthwith: (i)if the Dealer fails or neglects to observe or commits or allows to be committed any breach of the terms, conditions, provisions or stipulations of this Agreement on its part; or (ii)if the Dealer does or suffers any act or thing or omits to do or suffers to be done any act, thing, deed or, matter whereof, in the consequence of which the business of CARS24 or its Lending Partner may be or is likely to suffer; or (iii)if the Dealer acts beyond the scope of this Agreement or is suspected of falsifying records; or (iv)if the Dealer by its act or omission gives CARS24 or its Lending Partner reasonable ground to consider that its rights may be prejudiced or jeopardized; or (v)if at any time the Dealer uses or attempts to use CARS24 or its Lending Partners name or logo for its own purposes; or (vi)if it is reasonably believed by CARS24 or its Lending Partner that continuation of the relationship with the Dealer under this Agreement is injurious to its goodwill andor business; or (vii)if the Dealer enters into liquidation whether compulsory or voluntary (not being a voluntary liquidation for the purpose of reconstruction or amalgamation) or becomes insolvent or suffers any other insolvency or bankruptcy process or seeks any protection from its creditors or is unable to pay its debts as and when they fall due; or (viii)if at any time there is a change in the ownership, management or control of the Dealer which change is reasonably considered by CARS24 or its Lending Partner to be detrimental to CARS24 or its Lending Partner; or (ix)if the Dealer ceases permanently to carry on its business or substantially the major part thereof.",
+        "page_number": null,
+        "chunk_index": 35,
+        "metadata": {
+          "char_count": 1918,
+          "word_count": 327
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_36",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "onsidered by CARS24 or its Lending Partner to be detrimental to CARS24 or its Lending Partner; or (ix)if the Dealer ceases permanently to carry on its business or substantially the major part thereof.11.3Effect of Termination: The termination of Agreement shall be without prejudice to the accrued rights of the Parties.On the termination of this Agreement: (i)The Dealer shall complete all pending Loan applications accepted by CARS24 or its Lending Partner prior to the date of termination, unless these have been specifically cancelled by mutual agreement; (ii)The Dealer shall deliver to CARS24 all advertising material and unused Loan Documentation of CARS24 or its Lending Partner in hisits possession or custody; (iii)Save to the extent permitted under the terms of any other arrangement or relationship between the Dealer and CARS24, the Dealer will cease to use CARS24 or its Lending Partner name or logo in any manner whatsoever.",
+        "page_number": null,
+        "chunk_index": 36,
+        "metadata": {
+          "char_count": 940,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_37",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ent permitted under the terms of any other arrangement or relationship between the Dealer and CARS24, the Dealer will cease to use CARS24 or its Lending Partner name or logo in any manner whatsoever. Page 5 (iv)The Dealer shall return to CARS24 or all typefaces, blocks, prints and material bearing or containing any of the CARS24 or its Lending Partner trademarks.12.RELATIONSHIP 12.1The Parties agree that they have entered this Agreement as independent contractors and there is no employer employee, principal agent or master  servant relationship or partnershipjoint venture between the Parties. 13.NO WARRANTIES WITHOUT AUTHORITY 13.1The Dealer shall make no statement, representations or claim other than the standard warranty offered by the vehicle manufacturer. 14.PREVALENCE OF AGREEMENT 14.1In the event of inconsistency between the provisions of this Agreement and any other document or writing between the Parties hereto, the provisions of this Agreement shall prevail.",
+        "page_number": null,
+        "chunk_index": 37,
+        "metadata": {
+          "char_count": 982,
+          "word_count": 145
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_38",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "E OF AGREEMENT 14.1In the event of inconsistency between the provisions of this Agreement and any other document or writing between the Parties hereto, the provisions of this Agreement shall prevail. This Agreement shall override and supersede all prior writings, negotiations and oral agreements between the parties relating to the subject matter hereof.15.BENEFITS OF THIS AGREEMENT 15.1This Agreement and the respective rights and obligations of the parties hereto under this Agreement shall endure to the benefit of and be binding on their respective successors. 16.ASSIGNMENT 16.1The Dealer shall not assign, transfer or sub contract any of its rights and obligations under this Agreement. However CARS24 shall be entitled to assigntransfer its rights and benefits under this agreement.",
+        "page_number": null,
+        "chunk_index": 38,
+        "metadata": {
+          "char_count": 792,
+          "word_count": 117
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_39",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ler shall not assign, transfer or sub contract any of its rights and obligations under this Agreement. However CARS24 shall be entitled to assigntransfer its rights and benefits under this agreement. 17.NOTICES 17.1All notices, demands or other communications required to be given or made hereunder shall be in writing and delivered personally or sent by prepaid registered post or facsimile transmission addressed to the intended recipient thereof at its address mentioned above or to such address or facsimile number as any party may from time to time notify to the other parties.Any such notice, demand or communication from CARS24 or its Lending Partner shall be deemed to have been duly served if given or made by facsimile transmission, immediately on receipt of the transmission report by CARS24, or if given personally, on delivery thereof to the address of the recipient, or if given by registered post, five days after posting the same by registered post.",
+        "page_number": null,
+        "chunk_index": 39,
+        "metadata": {
+          "char_count": 966,
+          "word_count": 155
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_40",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "of the transmission report by CARS24, or if given personally, on delivery thereof to the address of the recipient, or if given by registered post, five days after posting the same by registered post. 18.PARTIAL INVALIDITY 18.1The illegality, invalidity or unenforceability or any provision of this Agreement shall not affect the legality, validity or enforceability of this Agreement or its other provisions hereof.19.NO WAIVER 19.1No failure on part of either Party to exercise, and no delay on its part in exercising, any right or remedy under this Agreement will operate as a waiver thereof nor will any single or partial exercise of any right or remedy preclude any other or further exercise thereof or the exercise of any other right or remedy, and the same shall not affect in any manner the effectiveness of any of the provisions of this Agreement.",
+        "page_number": null,
+        "chunk_index": 40,
+        "metadata": {
+          "char_count": 856,
+          "word_count": 141
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_41",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "preclude any other or further exercise thereof or the exercise of any other right or remedy, and the same shall not affect in any manner the effectiveness of any of the provisions of this Agreement. 20.AMENDMENT 20.1This Agreement shall not be amended, altered or modified, or any provision herein shall not be waived except by an instrument in writing expressly referring to this Agreement and signed by the duly authorized representatives of both the Parties.21.FURTHER ACTS 21.1Each of the Parties hereto undertake to execute, do and take all such steps as may be in their respective powers to execute, do and take or procure to be executed, taken or done and to execute all such further documents, agreements and deeds and do all further acts, deeds, matters and things as may be required to give effect to the provisions of this Agreement.",
+        "page_number": null,
+        "chunk_index": 41,
+        "metadata": {
+          "char_count": 846,
+          "word_count": 142
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_42",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "taken or done and to execute all such further documents, agreements and deeds and do all further acts, deeds, matters and things as may be required to give effect to the provisions of this Agreement. 22.FORCE MAJEURE 22.1Neither Party shall be liable for any inability to fulfill their commitments and obligations hereunder occasioned in whole or in part in the event of Force Majeure, fire, war or any other cause beyond their reasonable control.Such Force Majeure occurrence shall be notified to the other Party in writing within a week of such occurrence. If such force majeure continues for a period of one month and the concerned Party is unable to undo the damage caused by such event of Force Majeure, the other Party may be entitled to, though not being obliged, terminate this Agreement.",
+        "page_number": null,
+        "chunk_index": 42,
+        "metadata": {
+          "char_count": 797,
+          "word_count": 134
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_43",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "period of one month and the concerned Party is unable to undo the damage caused by such event of Force Majeure, the other Party may be entitled to, though not being obliged, terminate this Agreement. 23.ARBITRATION 23.1All disputes, differences or claims of any kind whatsoever arising between the Parties hereto out of or in connection with this Agreement or the validity, interpretation, implementation or alleged breach of the terms of this Agreement or omitted to be done pursuant to this Agreement, shall be first attempted to be resolved amicably by mutual negotiations within 30 days after commencement of discussions, failing which such dispute shall be referred to a sole arbitrator to be appointed by CARS24.The arbitration proceedings shall be in accordance with the Arbitration and Conciliation Act, 1996 and shall be conducted in English. The arbitration shall take place at Delhi and shall be governed by the laws of India.",
+        "page_number": null,
+        "chunk_index": 43,
+        "metadata": {
+          "char_count": 938,
+          "word_count": 150
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_44",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "eedings shall be in accordance with the Arbitration and Conciliation Act, 1996 and shall be conducted in English. The arbitration shall take place at Delhi and shall be governed by the laws of India. 24.GOVERNING LAW AND JURISDICTION 24.1This Agreement shall be governed by and construed in accordance with the laws of India.Subject to clause23 of this Agreement the transactions contemplated herein shall be subject to the exclusive jurisdiction of the competent Courts in Delhi only. Page 6 Annexure 1 Name of the Dealership MOHAMMED FAHEEM Entity Pan Number GQNPM7876R Nature of entity Company Partnership Proprietor Address Plot 3A Near Crystal plaza adarsh colony jafar nagar nagpur Authorized representative MOHAMMED FAHEEM MOHAMMED ALEEM Email ID fk3969865gmail.com Phone No.",
+        "page_number": null,
+        "chunk_index": 44,
+        "metadata": {
+          "char_count": 783,
+          "word_count": 118
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_45",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ntity Company Partnership Proprietor Address Plot 3A Near Crystal plaza adarsh colony jafar nagar nagpur Authorized representative MOHAMMED FAHEEM MOHAMMED ALEEM Email ID fk3969865gmail.com Phone No. 9850698786 Date of Agreement 13-Aug-25 Place of signing of Agreement Delhi IN WITNESS WHEREOF, the parties hereto have executed these persons the day and year first herein above mentioned: SIGNED SEALED AND DELIVERED By the within named CARS24 By the hand of Balram Devga SIGNED SEALED AND DELIVERED By the within named Dealer, By the hand of MOHAMMED FAHEEM MOHAMMED ALEEM Page 7 Annex IA CODE OF CONDUCT 1)BACKGROUND AND PURPOSE In accordance with the Directions on Managing Risks and Code of Conduct in Outsourcing of Financial Services by NBFCs (RBI Outsourcing Directions) prescribed by the Reserve Bank of India (RBI) under Non Banking Financial Company Non Systemically Important Non Deposit taking Company (Reserve Bank) Directions, 2016, Cars24 Financial Services Private Limited (Company), being a Non Banking Financial Company (NBFC) is required to put in place a Board approved Code of conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) (Code of Conduct) and obtain their undertaking to abide by the code.",
+        "page_number": null,
+        "chunk_index": 45,
+        "metadata": {
+          "char_count": 1236,
+          "word_count": 189
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_46",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "y (NBFC) is required to put in place a Board approved Code of conduct for Direct Sales Agents (DSAs) Direct Marketing Agents (DMAs) (Code of Conduct) and obtain their undertaking to abide by the code.As per the RBI Outsourcing Directions, the Company is required to ensure that the DSAs DMAs are properly trained to handle their responsibilities with care and sensitivity, particularly aspects such as soliciting customers, hours of calling, privacy of customer information and conveying the correct terms and conditions of the products on offer etc.It is hereby clarified that in terms of the Servicer Agreement the DSAsDMA has also been referred to as the Borrower. 2)APPLICABILITY This Code of Conduct will apply to all the DSAs DMAs and their representatives involved in marketing and distribution of any loan or other financial product of the Company.",
+        "page_number": null,
+        "chunk_index": 46,
+        "metadata": {
+          "char_count": 857,
+          "word_count": 137
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_47",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "Borrower. 2)APPLICABILITY This Code of Conduct will apply to all the DSAs DMAs and their representatives involved in marketing and distribution of any loan or other financial product of the Company. The Code of Conduct shall form part of the agreement to be signed with the DSA DMA and the DSA DMA and its employees representatives must agree to abide by the Code of Conduct prior to undertaking any direct marketing operation on behalf of the Company.Any DSA DMA or its employee representative found to be violating the Code of Conduct will be blacklisted by the Company and failure to comply with this requirement may result in permanent termination of business of the DSA DMA with the Company at the Companys discretion. The Company will take a DeclarationCum Undertaking (in the format enclosed as Annexure 1) from the DSAs DMAs while signing the agreement with them.",
+        "page_number": null,
+        "chunk_index": 47,
+        "metadata": {
+          "char_count": 873,
+          "word_count": 146
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_48",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "SA DMA with the Company at the Companys discretion. The Company will take a DeclarationCum Undertaking (in the format enclosed as Annexure 1) from the DSAs DMAs while signing the agreement with them. Further, respective DSA DMA will take a DeclarationCum Undertaking (in the format enclosed as Annexure 1) from each of its employees representatives before assigning them their duties.3)CODE OF CONDUCT The DSA DMA and its employees representatives will be required to follow the Code of Conduct detailed below: 3.1Tele calling a prospective customer A prospect is to be contacted for sourcing a product only under the following circumstances: (i)When prospect has expressed a desire to acquire a loan financial product through the Companys website call centre Branch any other means or is an existing customer who has given consent for accepting calls or solicitation of any product. (ii)When the prospects name telephone no address is available  has been obtained, after taking his her consent.",
+        "page_number": null,
+        "chunk_index": 48,
+        "metadata": {
+          "char_count": 996,
+          "word_count": 156
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_49",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ting customer who has given consent for accepting calls or solicitation of any product. (ii)When the prospects name telephone no address is available  has been obtained, after taking his her consent. The employees representatives of the DSA DMA should not call a person whose namenumber is flagged in any Do Not Disturb list available as per the applicable regulatory statutory guidelines.3.2When to contact a prospect on telephone Telephonic contact must normally be limited between 0900 Hrs and 1900 Hrs. However, it may be ensured that a prospect is contacted only when the call is not expected to inconvenience himher. Calls earlier or later than the prescribed time period may be placed only when the prospect has expressly authorized DSA DMA or its employees to do so either in writing or verbally. 3.3Can the prospects interest be discussed with anybody else? DSA DMA should respect a prospects privacy.",
+        "page_number": null,
+        "chunk_index": 49,
+        "metadata": {
+          "char_count": 911,
+          "word_count": 147
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_50",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ect has expressly authorized DSA DMA or its employees to do so either in writing or verbally. 3.3Can the prospects interest be discussed with anybody else? DSA DMA should respect a prospects privacy. The prospects interest may normally be discussed only with the prospect and any other individualfamily member such as prospects accountant secretary  spouse, authorized by the prospect.3.4Leaving messages and contacting persons other than the prospect Calls must first be placed to the prospect. In the event the prospect is not available, a message may be left for himher. The aim of the message should be to get the prospect to return the call or to check for a convenient time to call again. 3.5No misleading statementsmisrepresentations permitted The Direct Selling Agent and or its employees representatives should not: (i)Mislead the prospect on any service  product offered; (ii)Mislead the prospect about their business or organizations name, or falsely represent themselves.",
+        "page_number": null,
+        "chunk_index": 50,
+        "metadata": {
+          "char_count": 984,
+          "word_count": 151
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_51",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ts employees representatives should not: (i)Mislead the prospect on any service  product offered; (ii)Mislead the prospect about their business or organizations name, or falsely represent themselves. (iii)Make any false unauthorized commitment on behalf of the Company for any facility service.3.6Telemarketing Etiquettes (i)PreCall No calls prior to 0930 Hrs or post 1900 Hrs unless specifically requested. No serial dialing Page 8 No calling on lists unless list is cleared by team leader (ii)During Call Identify yourself, your company and your principal Request permission to proceed If denied permission, apologize and politely disconnect.",
+        "page_number": null,
+        "chunk_index": 51,
+        "metadata": {
+          "char_count": 645,
+          "word_count": 91
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_52",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "n lists unless list is cleared by team leader (ii)During Call Identify yourself, your company and your principal Request permission to proceed If denied permission, apologize and politely disconnect. State reason for your call Always offer to call back on landline, if call is made to a cell number Never interrupt or argue To the extent possible, talk in the language which is most comfortable to the prospect Keep the conversation limited to business matters Check for understanding of the customer if he plans to buy the product Reconfirm next call or next visit details Provide your telephone no, your supervisors name or the Companys relevant officials contact details if asked for by the customer.Thank the customer for hisher time (iii)Post Call Customers who have expressed their lack of interest for the offering should not be called for the next 3 months with the same offer. Provide feedback to the Company on customers who have expressed their desire to be flagged Do Not Disturb.",
+        "page_number": null,
+        "chunk_index": 52,
+        "metadata": {
+          "char_count": 993,
+          "word_count": 164
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_53",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "of interest for the offering should not be called for the next 3 months with the same offer. Provide feedback to the Company on customers who have expressed their desire to be flagged Do Not Disturb. Never call or entertain calls from customers regarding products already sold.Advise them to contact the Customer Service Staff of the Company. 3.7Gifts or bribes The DSA DMA and or its employees representatives must not accept gifts from prospects or bribes of any kind. Any employee representative offered a bribe or payment of any kind by a customer must report the offer to his her management. 3.8Precautions to be taken on visits contacts The DSA DMA and or its employees representatives should: (i)Respect personal space of the prospect (ii)Not enter the prospects residenceoffice against hisher wishes; (iii)Not visit in large numbers. (iv)Respect the prospects privacy.",
+        "page_number": null,
+        "chunk_index": 53,
+        "metadata": {
+          "char_count": 877,
+          "word_count": 140
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_54",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "epresentatives should: (i)Respect personal space of the prospect (ii)Not enter the prospects residenceoffice against hisher wishes; (iii)Not visit in large numbers. (iv)Respect the prospects privacy. (v)If the prospect is not present and only family membersoffice persons are present at the time of the visit, he should end the visit with a request for the prospect to call back.(vi)Provide his telephone number, supervisors name or the Companys concerned officials, if asked for by the customer. (vii)Limit discussions to the business Maintain a professional distance. 3.9Other important aspects  Appearance  Dress Code Employeesrepresentatives of DSA DMA must be appropriately dressed. 3.10Handling of letters  other communication Any communication sent to the prospect should be only in the mode and format approved by the Company.",
+        "page_number": null,
+        "chunk_index": 54,
+        "metadata": {
+          "char_count": 835,
+          "word_count": 120
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_55",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "sentatives of DSA DMA must be appropriately dressed. 3.10Handling of letters  other communication Any communication sent to the prospect should be only in the mode and format approved by the Company. Page 9 DeclarationCum Undertaking to be provided by Direct Sales Agent (DSA) Direct Marketing Agent (DMA) and its employees representatives Date: To Cars24 Financial Services Private Limited 10th Floor, Tower B, Unitech Cyber Park, Sector 39, Gurugram, Haryana  122001 Re: Code of Conduct Dear Sir, In the discharge of my duties, I am obligated to follow the Code of conduct for Direct Sales Agents Direct Marketing Agents (Code of Conduct) a copy of which has been provided to me.I confirm that I have read and understood and agree to abide by the Code of Conduct. I further confirm that the trainer mentioned below has explained the contents in full to me. In case of any violation, non adherence to the said Code, you shall be entitled to take such action against me as you may deem appropriate.",
+        "page_number": null,
+        "chunk_index": 55,
+        "metadata": {
+          "char_count": 999,
+          "word_count": 168
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_56",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "r mentioned below has explained the contents in full to me. In case of any violation, non adherence to the said Code, you shall be entitled to take such action against me as you may deem appropriate. Signature: Date: 13-Aug-25 Name of the Dealer : MOHAMMED FAHEEM MOHAMMED ALEEM Page 10 Annex IB Declaration of GST Non Registration (If applicable) To, Cars24 Financial Services Private Limited 10th Floor, Tower B, Unitech Cyber Park, Sector 39, Gurugram, Haryana  122001 Subject: Declaration regarding non requirement to be registered under the Central  State UT Integrated Goods and Services Tax Act, 2017 Particulars Details Legal Name of Entity (I We) MOHAMMED FAHEEM Registered Office Address Plot 3A Near Crystal plaza adarsh colony jafar nagar nagpur Name of Proprietor Partner signing this form MOHAMMED FAHEEM MOHAMMED ALEEM Email ID fk3969865gmail.com Contact No 9850698786 PAN No GQNPM7876R We hereby state that we are not required to get ourselves registered under the Goods and Services Tax Act, 2017 as (please  and fill below for the relevant reason) We deal in to the category of goods or services (Nature of goods  services) which are exempted under the Goods and Service Tax Act, 2017.",
+        "page_number": null,
+        "chunk_index": 56,
+        "metadata": {
+          "char_count": 1203,
+          "word_count": 195
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_57",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "Act, 2017 as (please  and fill below for the relevant reason) We deal in to the category of goods or services (Nature of goods  services) which are exempted under the Goods and Service Tax Act, 2017.We have the turnover below the taxable limit as specified under the Goods and Services Tax Act, 2017.IWe hereby also confirm that if during any financial year Iwe decide or require to register under the GST in that case Iwe undertake to provide all the requisite information and documents. Iwe also undertake the responsibility to inform all subsequent changes in constitution or working of firm. IWe request you to treat this communication as a declaration regarding non requirement to be registered under the Goods and Service Tax Act, 2017. IWe acknowledge that information furnished above are true and best to our knowledge and that Iwe shall be bound by the acts of duly constituted attorney.",
+        "page_number": null,
+        "chunk_index": 57,
+        "metadata": {
+          "char_count": 898,
+          "word_count": 150
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_58",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "ed under the Goods and Service Tax Act, 2017. IWe acknowledge that information furnished above are true and best to our knowledge and that Iwe shall be bound by the acts of duly constituted attorney. In case of above information is found to be incorrect later, any payment shall be withheld by Cars24 Financial Services Private Limited and any unprocessed payment shall remain withheld by the company.",
+        "page_number": null,
+        "chunk_index": 58,
+        "metadata": {
+          "char_count": 401,
+          "word_count": 67
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_59",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "n case of above information is found to be incorrect later, any payment shall be withheld by Cars24 Financial Services Private Limited and any unprocessed payment shall remain withheld by the company.Name of Dealer MOHAMMED FAHEEM MOHAMMED ALEEM Name  Signature  MOHAMMED FAHEEM MOHAMMED ALEEM Authorised Signatory Date: 13-Aug-25 Page 11 Annexure 1 C With reference to the MCA Notification, dated 22nd January, 2019, all companies, who get supplies of goods or services from Micro and Small Enterprises and whose payments to Micro and Small Enterprise suppliers exceeds Forty Five days from the date of acceptance or the date of deemed acceptance of the goods or services as per the provisions of section 9 of the Micro, Small and Medium Enterprises Development Act, 2006 shall submit a half yearly return in Form MSME-1 i.e.the details of outstanding dues to Micro or Small enterprise existing on the date of Notification to the Ministry of Corporate Affairs.",
+        "page_number": null,
+        "chunk_index": 59,
+        "metadata": {
+          "char_count": 962,
+          "word_count": 154
+        }
+      },
+      {
+        "chunk_id": "f221498e-53dc-41df-a24f-81a6f0ff7918_chunk_60",
+        "document_id": "f221498e-53dc-41df-a24f-81a6f0ff7918",
+        "content": "Act, 2006 shall submit a half yearly return in Form MSME-1 i.e.the details of outstanding dues to Micro or Small enterprise existing on the date of Notification to the Ministry of Corporate Affairs. To enable Cars24 to comply with the above notification, the Dealer confirms as follows: We are not a MSME and are not registered as MSME under Micro, Small and Medium Enterprise Development Act, 2006.OR We are a MSME and registered as MSME under Micro, Small and Medium Enterprise Development Act, 2006. If you declare that you are MSME, then please also share duly attested copy of MSME Registration Certificate and PAN along with the agreement. Name of Dealer MOHAMMED FAHEEM MOHAMMED ALEEM Name  Signature  MOHAMMED FAHEEM MOHAMMED ALEEM Authorised Signatory Date: 13-Aug-25",
+        "page_number": null,
+        "chunk_index": 60,
+        "metadata": {
+          "char_count": 778,
+          "word_count": 125
+        }
+      }
+    ],
+    "error_message": null
+  }
+}
