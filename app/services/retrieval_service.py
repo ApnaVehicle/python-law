@@ -8,12 +8,12 @@ class RetrievalService:
     
     def __init__(self):
         # Import here to avoid circular imports
-        from app.services.vector_store import vector_store
+        from app.services.vector_store_memory import memory_vector_store
         from app.services.document_service import document_service
-        self.vector_store = vector_store
+        self.vector_store = memory_vector_store
         self.document_service = document_service
     
-    def retrieve_relevant_chunks(
+    async def retrieve_relevant_chunks(
         self,
         query: str,
         document_ids: Optional[List[str]] = None,
@@ -54,7 +54,7 @@ class RetrievalService:
             
             # Search for similar chunks
             logger.info(f"Searching with query: '{query}', top_k: {top_k}")
-            similar_chunks = self.vector_store.search_similar_chunks(
+            similar_chunks = await self.vector_store.search_similar_chunks(
                 query=query,
                 n_results=min(top_k * 2, 20),  # Get more candidates for filtering
                 document_ids=search_document_ids

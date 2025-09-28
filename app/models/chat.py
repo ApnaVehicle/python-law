@@ -17,6 +17,8 @@ class ChatRequest(BaseModel):
     max_history: int = 5
 
 class ChatResponse(BaseModel):
+    model_config = {"protected_namespaces": ()}
+    
     response: str
     session_id: str
     sources: List[Dict[str, Any]] = []

@@ -162,7 +162,7 @@ class ChatService:
             logger.info(f"Searching in legal documents: {search_document_ids}")
 
             # Retrieve relevant document chunks
-            retrieved_chunks = self.retrieval_service.retrieve_relevant_chunks(
+            retrieved_chunks = await self.retrieval_service.retrieve_relevant_chunks(
                 query=request.message,
                 document_ids=search_document_ids,
                 top_k=5,

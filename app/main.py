@@ -29,12 +29,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Create upload directory if it doesn't exist
-os.makedirs(settings.upload_dir, exist_ok=True)
-os.makedirs(settings.chroma_persist_directory, exist_ok=True)
-
-# Static files for uploaded documents (optional)
-app.mount("/uploads", StaticFiles(directory=settings.upload_dir), name="uploads")
+# Create upload directory if it doesn't exist (only in non-serverless environments)
+try:
+    os.makedirs(settings.upload_dir, exist_ok=True)
+    os.makedirs(settings.chroma_persist_directory, exist_ok=True)
+    # Static files for uploaded documents (only if directory creation succeeded)
+    app.mount("/uploads", StaticFiles(directory=settings.upload_dir), name="uploads")
+except OSError as e:
+    # Handle read-only file system (e.g., Vercel serverless)
+    if "Read-only file system" in str(e) or e.errno == 30:
+        print(f"Warning: Cannot create directories in read-only file system: {e}")
+        print("Running in serverless mode - file uploads will use temporary storage")
+    else:
+        raise
 
 # Include API routes
 app.include_router(chat_router, prefix="/api/v1/chat", tags=["chat"])

@@ -20,7 +20,22 @@ class DocumentService:
     def __init__(self):
         self.file_processor = FileProcessor()
         self.documents: Dict[str, Document] = {}
-        self.storage_file = os.path.join(settings.chroma_persist_directory, "documents.json")
+        
+        # Handle serverless environments (read-only file system)
+        try:
+            self.storage_file = os.path.join(settings.chroma_persist_directory, "documents.json")
+            # Test if we can write to the directory
+            os.makedirs(os.path.dirname(self.storage_file), exist_ok=True)
+            self.is_serverless = False
+        except OSError as e:
+            if "Read-only file system" in str(e) or e.errno == 30:
+                # Use temporary directory for serverless
+                import tempfile
+                self.storage_file = os.path.join(tempfile.gettempdir(), "documents.json")
+                self.is_serverless = True
+                logger.info("Running in serverless mode - using temporary storage")
+            else:
+                raise
         
         # Load existing documents on startup
         self._load_documents()
@@ -39,7 +54,14 @@ class DocumentService:
             # Generate unique filename and document ID
             file_extension = os.path.splitext(file.filename)[1]
             unique_filename = f"{uuid.uuid4()}{file_extension}"
-            file_path = os.path.join(settings.upload_dir, unique_filename)
+            
+            # Handle serverless environments
+            if self.is_serverless:
+                import tempfile
+                file_path = os.path.join(tempfile.gettempdir(), unique_filename)
+            else:
+                file_path = os.path.join(settings.upload_dir, unique_filename)
+            
             document_id = str(uuid.uuid4())
             
             # Create document metadata
@@ -93,7 +115,7 @@ class DocumentService:
             # Try to add to vector store
             try:
                 logger.info("Adding chunks to vector store...")
-                from app.services.vector_store import vector_store
+                from app.services.vector_store_memory import memory_vector_store
                 
                 # Prepare document metadata for vector store
                 document_metadata_dict = {
@@ -102,7 +124,7 @@ class DocumentService:
                     "upload_timestamp": document.metadata.upload_timestamp.isoformat()
                 }
                 
-                success = vector_store.add_document_chunks(chunks, document_metadata_dict)
+                success = await memory_vector_store.add_document_chunks(chunks, document_metadata_dict)
                 
                 if success:
                     document.status = DocumentStatus.READY
@@ -161,8 +183,8 @@ class DocumentService:
         
         # Delete from vector store first
         try:
-            from app.services.vector_store import vector_store
-            vector_store.delete_document_chunks(document_id)
+            from app.services.vector_store_memory import memory_vector_store
+            memory_vector_store.delete_document_chunks(document_id)
             logger.info(f"Deleted chunks from vector store for document: {document_id}")
         except Exception as e:
             logger.error(f"Error deleting from vector store: {e}")

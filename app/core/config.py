@@ -11,6 +11,11 @@ class Settings(BaseSettings):
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
     openrouter_model: str = "anthropic/claude-3-haiku"
     
+    # Embedding Configuration
+    openai_api_key: str = ""  # Optional: separate key for embeddings
+    embedding_model: str = "text-embedding-3-small"  # Fast and cost-effective
+    use_cloud_embeddings: bool = True  # Use cloud embeddings by default
+    
     # File Upload Settings
     upload_dir: str = "./uploads"
     max_file_size: int = 50000000  # 50MB
